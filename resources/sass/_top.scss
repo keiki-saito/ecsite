@@ -1,0 +1,14 @@
+.slideshow{
+    overflow: hidden;
+    position: relative;
+    min-width: 960px;
+    height: 1000px;
+
+}
+
+.slideshow img{
+    display: none;
+    position: absolute;
+    left: 50%;
+    margin-left: -800px;
+}
