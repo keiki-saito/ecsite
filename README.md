@@ -30,5 +30,7 @@ php artisan migrate:refresh --seed
 php artisan make:seeder ファイル名
 ```
 
+ php artisan make:controller HelloController
+
 
 

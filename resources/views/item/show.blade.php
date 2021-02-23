@@ -19,7 +19,22 @@
 </div>
 </div>
 
+<!-- レビュー投稿 -->
 
+<!-- レビュー投稿機能 -->
+
+<form action="/review" method="POST">
+    @csrf
+    <input type="hidden" name="item_id" value="{{$item->id}}">
+    <div class="form-group">
+        <label for="review"></label>
+        <textarea name="review" id="review" cols="30" rows="10"></textarea>
+    </div>
+    <input type="text" name="star">
+    <div class="mt-4">
+        <button type="submit">投稿する</button>
+    </div>
+</form>
 @endsection
 
 
