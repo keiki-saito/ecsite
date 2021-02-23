@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Item;
+use App\Review;
 use App\Category;
 use Illuminate\Http\Request;
 
@@ -23,7 +24,8 @@ class ItemsController extends Controller
     public function show (Request $request,$id)
     {
         $item = Item::findOrFail($id);
+        $reviews = Review::where('item_id',$id)->get();
 
-        return view('item.show',compact('item'));
+        return view('item.show',compact('item','reviews'));
     }
 }

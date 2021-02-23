@@ -14,7 +14,9 @@ $fa-font-path: "../webfonts"; //追記
 @import '~@fortawesome/fontawesome-free/scss/regular'; //追記
 @import '~@fortawesome/fontawesome-free/scss/brands'; //追記
 @import 'top';
+@import 'itempage';
 @import 'Itemshow';
+
 
 body{
     background-color: #ffffff;

@@ -19,3 +19,4 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('item', 'ItemsController', ['only' => [ 'index','show']]);
+Route::resource('review','ReviewController',['only'=>['store','edit','update','destroy']]);
