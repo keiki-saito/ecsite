@@ -30,7 +30,7 @@
   </div>
   <div class="item-card-link">
         <p>{{$item->fee}}円</p>
-        <p>Website</p>
+        <button>カートに入れる</button>
   </div>
 </section>
 @endforeach

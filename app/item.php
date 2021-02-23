@@ -10,6 +10,10 @@ class Item extends Model
         return $this->belongsTo('App\category');
     }
 
+    public function reviews(){
+        return $this->hasMany('App\Review');
+    }
+
     public function scopeCategory($query,$category_id)
     {
         if(empty($category_id)){
