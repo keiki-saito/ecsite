@@ -17102,6 +17102,53 @@ readers do not read off random characters that represent icons */
   margin-left: -800px;
 }
 
+.show-page-card {
+  margin: 30px;
+  width: 350px;
+  background: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px #ccc;
+}
+
+.show-page-card-img {
+  border-radius: 5px 5px 0 0;
+  min-width: 100%;
+  height: 300px;
+}
+
+.show-page-card-content {
+  padding: 20px;
+}
+
+.show-page-card-title {
+  font-size: 20px;
+  margin-bottom: 20px;
+  text-align: center;
+  color: #333;
+}
+
+.show-page-card-text {
+  color: #777;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.show-page-card-link {
+  text-align: center;
+  border-top: 1px solid #eee;
+  padding: 20px;
+}
+
+.show-page-card-link p {
+  text-decoration: none;
+  color: #0bd;
+  margin: 0 10px;
+}
+
+.show-page-card-link p:hover {
+  color: #0090aa;
+}
+
 body {
   background-color: #ffffff;
   display: flex;
