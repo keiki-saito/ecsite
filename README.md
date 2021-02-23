@@ -29,3 +29,6 @@ php artisan migrate:refresh --seed
 ```
 php artisan make:seeder ファイル名
 ```
+
+
+

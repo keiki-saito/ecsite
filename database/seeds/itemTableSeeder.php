@@ -68,6 +68,14 @@ class itemTableSeeder extends Seeder
                 'fee'=>16990,
                 'image_path'=>'item007.jpg'
             ],
+            [
+                'name'=>'MELLTORP メルトルプ',
+                'category_id'=>2,
+                'detail'=>'商品テスト済。テーブルの表面は液体、食品のしみやオイル、熱、傷、衝撃への耐性があります
+                安定性を高めるため、組み立てから約2週間後に、また必要に応じてネジを締め直してください',
+                'fee'=>5990,
+                'image_path'=>'item008.jpg'
+            ],
         ]);
     }
 }
