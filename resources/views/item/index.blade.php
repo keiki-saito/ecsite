@@ -2,7 +2,7 @@
 @include('layouts.header')
 
 @section('content')
-<div class="form-container">
+<div class="form-container" >
 <form method="GET" action="/item" width="400px">
     <input type="text" name="keyword">
     <input type="submit" value="商品検索">
@@ -30,7 +30,13 @@
   </div>
   <div class="item-card-link">
         <p>{{$item->fee}}円</p>
-        <button>カートに入れる</button>
+        <form action="/cart" method="POST">
+            @csrf
+            <input type="hidden" name="item_id" value="{{$item->id}}">
+            <input type="text" name="quantity">
+            <button type="submit">カートに入れる</button>
+        </form>
+
   </div>
 </section>
 @endforeach

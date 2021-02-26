@@ -16,6 +16,7 @@ $fa-font-path: "../webfonts"; //追記
 @import 'top';
 @import 'itempage';
 @import 'Itemshow';
+@import 'header';
 
 
 body{
@@ -23,10 +24,20 @@ body{
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    font-family: 'Noto Sans JP', sans-serif;
 }
 footer{
     margin-top: auto;
 }
+
+a{
+    text-decoration: none;
+}
+
+a:hover{
+    text-decoration: none;
+}
+
 
 .fadein {
     opacity : 0;
