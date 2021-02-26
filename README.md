@@ -29,8 +29,19 @@ php artisan migrate:refresh --seed
 ```
 php artisan make:seeder ファイル名
 ```
+### コントローラー作成
+```
+php artisan make:controller HelloController
+```
 
- php artisan make:controller HelloController
+### アセット変更監視
+```
+npm run watch
+```
+
+
+
+
 
 
 
