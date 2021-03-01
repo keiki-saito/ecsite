@@ -10,7 +10,7 @@ class CartController extends Controller
 
     public function index(Request $request)
     {
-        $carts = Cart::where('user_id',Auth::id())->get();
+        $carts = Cart::where('user_id',Auth::id())->get(); #購入済みではない商品を取得
         //dd($carts);
         return view('cart.index',compact('carts'));
     }
@@ -24,7 +24,7 @@ class CartController extends Controller
         $cart->quantity = $request->quantity;
         $cart->save();
 
-        return redirect('/item');
+        return redirect('/item')->with('flash_message','商品をカートに入れました');
 
     }
 }

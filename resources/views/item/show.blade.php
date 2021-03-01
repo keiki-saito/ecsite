@@ -13,7 +13,7 @@
         <h5 class="card-title">{{$item->name}}</h5>
         <p class="card-text">{{$item->detail}}</p>
         <p class="card-text">{{$item->fee}}</p>
-        <button>カートに入れる</button>
+        <!-- <button>カートに入れる</button> -->
       </div>
     </div>
   </div>

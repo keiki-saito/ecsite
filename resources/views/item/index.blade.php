@@ -2,6 +2,12 @@
 @include('layouts.header')
 
 @section('content')
+@if(session('flash_message'))
+    <div class="alert alert-success mt-4 mb-4">
+        {{session('flash_message')}}
+    </div>
+@endif
+
 <div class="form-container" >
 <form method="GET" action="/item" width="400px">
     <input type="text" name="keyword">
@@ -33,7 +39,12 @@
         <form action="/cart" method="POST">
             @csrf
             <input type="hidden" name="item_id" value="{{$item->id}}">
-            <input type="text" name="quantity">
+            <select name="quantity">
+                <option value="">-</option>
+                @for($i=1;$i<=100;$i++)
+                <option value="{{$i}}">{{$i}}</option>
+                @endfor
+            </select>個
             <button type="submit">カートに入れる</button>
         </form>
 

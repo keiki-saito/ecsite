@@ -17093,7 +17093,6 @@ readers do not read off random characters that represent icons */
   position: relative;
   min-width: 960px;
   height: 1000px;
-  margin-top: 40px;
 }
 
 .slideshow img {
@@ -17218,6 +17217,7 @@ readers do not read off random characters that represent icons */
 .header {
   background-color: #3E597C;
   height: 130px;
+  margin-bottom: 40px;
   position: relative;
 }
 

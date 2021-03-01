@@ -23,6 +23,8 @@ php artisan make:model モデル名 -m
 
 ```
 php artisan migrate:refresh --seed
+
+php artisan db:seed --class=UserTableSeeder
 ```
 
 ### シードファイル作成

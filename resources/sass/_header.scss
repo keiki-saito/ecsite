@@ -1,24 +1,20 @@
 .header{
     background-color: #3E597C;
     height: 130px;
+    margin-bottom: 40px;
     position: relative;
+
 }
-
-
-
 .header-link{
     color: #BD996D;
     font-weight: bold;
     font-size: 12px;
     letter-spacing: 1px;
 }
-
-
 .header-link:hover{
     color: #BD996D;
     background-color: #314A6D;
 }
-
 .header-item{
     position: absolute;
     top: 5px;
