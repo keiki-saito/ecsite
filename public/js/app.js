@@ -37413,6 +37413,7 @@ $(function () {
 $(function () {
   ScrollReveal().reveal('.headline');
 });
+;
 
 /***/ }),
 

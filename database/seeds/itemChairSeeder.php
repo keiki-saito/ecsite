@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class itemTableSeeder extends Seeder
+class itemChairSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -18,7 +18,7 @@ class itemTableSeeder extends Seeder
                 'detail'=>'チェアの高さを調節できるので、自分に合った高さで快適に座れます
                 安全キャスターは感圧式ロック機能付き。立ち上がるとチェアが動かないようロックがかかります。座るとロックが解除されます',
                 'fee'=>2999,
-                'image_path'=>'item001.jpg'
+                'image_path'=>'item0001.jpg'
             ],
             [
                 'name'=>'RENBERGET レンベルゲット',
@@ -26,7 +26,7 @@ class itemTableSeeder extends Seeder
                 'detail'=>'体の動きや体重に合わせて、背もたれのテンションの強さを変えられます
                 チェアの高さを調節できるので、自分に合った高さで快適に座れます',
                 'fee'=>4999,
-                'image_path'=>'item002.jpg'
+                'image_path'=>'item0002.jpg'
             ],
             [
                 'name'=>'LÅNGFJÄLL ロングフィェル',
@@ -34,7 +34,7 @@ class itemTableSeeder extends Seeder
                 'detail'=>'ゆるやかにカーブを描く人間工学デザインのオフィスチェア。丁寧な縁縫い。チェアのデザインを損なわないようシートの下に隠れた使いやすい調節機能
                 安全キャスターは感圧式ロック機能付き。立ち上がるとチェアが動かないようロックがかかります。座るとロックが解除されます',
                 'fee'=>19990,
-                'image_path'=>'item003.jpg'
+                'image_path'=>'item0003.jpg'
             ],
             [
                 'name'=>'LOBERGET ローベルゲット / BLYSKÄR ブリシェール',
@@ -42,7 +42,7 @@ class itemTableSeeder extends Seeder
                 'detail'=>'安全キャスターは感圧式ロック機能付き。立ち上がるとチェアが動かないようロックがかかります。座るとロックが解除されます
                 チェアの高さを調節できるので、自分に合った高さで快適に座れます',
                 'fee'=>3699,
-                'image_path'=>'item004.jpg'
+                'image_path'=>'item0004.jpg'
             ],
             [
                 'name'=>'REMSTA レームスタ',
@@ -50,7 +50,7 @@ class itemTableSeeder extends Seeder
                 'detail'=>'アームチェアの形が腰を快適にサポートします
                 ソフトで上品な風合いのベルベット。磨耗に強く、お手入れが簡単です。普段のお手入れは、柔らかいブラシを取り付けた掃除機でゴミやホコリを吸い取ってください',
                 'fee'=>19990,
-                'image_path'=>'item005.jpg'
+                'image_path'=>'item0005.jpg'
             ],
             [
                 'name'=>'EKERÖ エーケロー',
@@ -58,7 +58,7 @@ class itemTableSeeder extends Seeder
                 'detail'=>'リバーシブルの背もたれクッションが背中をふんわりと優しくサポートします
                 背もたれクッションは取り外し可能。お好みに合わせてご自由にお使いください',
                 'fee'=>16990,
-                'image_path'=>'item006.jpg'
+                'image_path'=>'item0006.jpg'
             ],
             [
                 'name'=>'JÄRVFJÄLLET イェルヴフェレット',
@@ -66,16 +66,9 @@ class itemTableSeeder extends Seeder
                 'detail'=>'10年品質保証。詳しくは「品質保証のご案内」をご覧ください
                 背もたれは通気性の高いメッシュ素材。長時間座っても背中が蒸れません',
                 'fee'=>16990,
-                'image_path'=>'item007.jpg'
+                'image_path'=>'item0007.jpg'
             ],
-            [
-                'name'=>'MELLTORP メルトルプ',
-                'category_id'=>2,
-                'detail'=>'商品テスト済。テーブルの表面は液体、食品のしみやオイル、熱、傷、衝撃への耐性があります
-                安定性を高めるため、組み立てから約2週間後に、また必要に応じてネジを締め直してください',
-                'fee'=>5990,
-                'image_path'=>'item008.jpg'
-            ],
+
         ]);
     }
 }

@@ -3,7 +3,6 @@
     position: relative;
     min-width: 960px;
     height: 1000px;
-    margin-top: 40px;
 }
 
 .slideshow img{
@@ -12,20 +11,6 @@
     left: 50%;
     margin-left: -800px;
 }
-
-// .slide-item{
-//     overflow: hidden;
-//     position: relative;
-//     min-width: 960px;
-//     position: relative;
-// }
-// .slide-item img{
-//     display: none;
-//     position: absolute;
-//     left: 50%;
-//     margin-left: -800px;
-// }
-
 
 .slide-item p{
     position: absolute;
@@ -36,7 +21,10 @@
     transform: translate(-50%,-50%);
     margin:0;
     padding:0;
-    font-size: 40px;
+    font-size: 55px;
     font-weight: bold;
-    color: black;
+    color: #243A5E;
+
 }
+
+
