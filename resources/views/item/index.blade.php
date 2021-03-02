@@ -8,13 +8,15 @@
     </div>
 @endif
 
-<div class="form-container" >
-<form method="GET" action="/item" width="400px">
-    <input type="text" name="keyword">
-    <input type="submit" value="商品検索">
+<div class="search" style="margin: 0 auto;">
+
+
+<form method="GET" action="/item">
+    <input type="text" name="keyword" class="search-box" height="40px">
+    <button class="search-btn" type="submit"><i class="fas fa-search"></i></button>
 </form>
 
-<form action="/item" method="GET">
+<form action="/item" method="GET" class="ml-4">
     <div class="form-group">
         <select name="category_id" id="category_id" class="category_select">
             @foreach($categories as $id=>$category)
@@ -25,11 +27,13 @@
     </div>
 </form>
 </div>
-</div>
+
+
+
 
 <div class="flex">
 @foreach($items as $item)
-<section class="item-card">
+<section class="item-card fadeinItem">
   <img class="item-card-img" src="{{ asset('/images/' . $item->image_path) }}" >
   <div class="item-card-content">
     <a href="/item/{{$item->id}}"><h1 class="item-card-title">{{$item->name}}</h1></a>
@@ -45,13 +49,15 @@
                 <option value="{{$i}}">{{$i}}</option>
                 @endfor
             </select>個
-            <button type="submit">カートに入れる</button>
+            <button type="submit" class="btn">カートに入れる</button>
         </form>
 
   </div>
 </section>
 @endforeach
 </div>
+
+
 
 @endsection
 

@@ -18,7 +18,7 @@
         @csrf
     </form>
     @else
-        <a class="header-link mr-3" href="{{ route('register') }}">新規登録 |</a>
+        <a class="header-link" href="{{ route('register') }}">新規登録 |</a>
         <a class="header-link" href="{{ route('login') }}">ログイン</a>
     @endif
     </div><!--header-sub-->

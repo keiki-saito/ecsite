@@ -35,6 +35,7 @@ class BuyController extends Controller
                 $order = new Order;
                 $order->user_id = Auth::id();
                 $order->item_id = $cart->item->id;
+                $order->quantity = $cart->quantity;
                 $order->fee = $cart->item->fee;
                 $order->save();
             }
