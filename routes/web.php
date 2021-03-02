@@ -11,6 +11,8 @@
 |
 */
 
+
+
 Route::get('/', function () {
    return view('layouts.top');
 });
@@ -24,6 +26,7 @@ Route::resource('cart','CartController',['only'=>['index','store','destroy']]);
 Route::get('/buy', 'BuyController@index');
 Route::post('/buy', 'BuyController@store');
 Route::get('/user','UserController@show');
+Route::get('/about','AboutController@about');
 
 
 //管理側

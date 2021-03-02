@@ -38,7 +38,7 @@
             <p class="card-text">
             </p>
         <a href="/buy" class="btn">レジに進む</a>
-        <a href="/item" class="continue-btn">買い物を続ける</a>
+        <a href="/item" class="sub-btn">買い物を続ける</a>
       </div>
     </div>
 

@@ -7,20 +7,20 @@
 <div class="slideshow">
     <div class="slide-item">
         <img src="{{asset('/images/top_image01.jpg')}}" width="1600" height="700">
-        <p>タイトル</p>
+        <p class="top_title">Selected Furniture</p>
     </div>
 
     <div class="slide-item">
         <img src="{{asset('/images/top_image02.jpg')}}" width="1600" height="700">
-        <p>タイトル</p>
+        <p class="top_title">Selected Furniture</p>
     </div>
     <div class="slide-item">
         <img src="{{asset('/images/top_image03.jpg')}}" width="1600" height="700">
-        <p>タイトル</p>
+        <p>Selected Furniture</p>
     </div>
     <div class="slide-item">
         <img src="{{asset('/images/top_image04.jpg')}}" width="1600" height="700">
-        <p>タイトル</p>
+        <p>Selected Furniture</p>
     </div>
 </div>
 

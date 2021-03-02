@@ -9,23 +9,22 @@
 @endif
 
 <div class="search" style="margin: 0 auto;">
-
-
 <form method="GET" action="/item">
+ <div class="input-group">
+    <div class="input-group-prepend">
+      <select name="category_id" id="category_id" class="category_select">
+          @foreach($categories as $id=>$category)
+             <option value="{{$id}}">{{$category}}</option>
+          @endforeach
+      </select>
+  </div>
+
     <input type="text" name="keyword" class="search-box" height="40px">
-    <button class="search-btn" type="submit"><i class="fas fa-search"></i></button>
+
+    <button class="search-btn ml-2" type="submit"><i class="fas fa-search"></i></button>
+</div>
 </form>
 
-<form action="/item" method="GET" class="ml-4">
-    <div class="form-group">
-        <select name="category_id" id="category_id" class="category_select">
-            @foreach($categories as $id=>$category)
-                <option value="{{$id}}">{{$category}}</option>
-            @endforeach
-        </select>
-        <input type="submit" value="検索">
-    </div>
-</form>
 </div>
 
 

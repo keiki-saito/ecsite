@@ -8,7 +8,10 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ config('app.name', 'Laravel') }}</title>
+
     <script src="{{ asset('js/app.js') }}" ></script>
+
+
 
     <script src="https://unpkg.com/scrollreveal"></script>
 
@@ -26,12 +29,18 @@
 
  @yield('header')
 
+ @if (session('flash_message'))
+        <div class="alert alert-success">
+            {{ session('flash_message') }}
+        </div>
+@endif
+
+
 
 
 @yield('content')
 
 @yield('footer')
-
 
 
 

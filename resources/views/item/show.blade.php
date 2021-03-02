@@ -58,8 +58,16 @@
         @endswitch
     </div>
     <div class="review">
-        <div class="review-title">{{$review->title}}</div>
-        <div>{{$review->review}}</div>
+       <div class="review-title">{{$review->title}}</div>
+        <div> {!! nl2br(e($review->review)) !!}</div>
+        @if(Auth::id()==$review->user_id)
+        <form style="display: inline-block;" method="POST" action="{{route('review.destroy',$review->id)}}">
+            @csrf
+            @method('DELETE')
+            <button><i class="fas fa-trash-alt mr-1"></i>削除</button>
+        </form>
+           <a href="/review/{{$review->id}}/edit"><i class="fas fa-edit mr-1 ml-1"></i>編集</a>
+        @endif
     </div>
 </div>
 @endforeach
@@ -93,12 +101,12 @@
             starOff: "{{ asset('images/star-off.png') }}",
             starOn: "{{ asset('images/star-on.png') }}",
         });
+      
+
+
 </script>
 
 
 @endsection
-
-
-
 
 @include('layouts.footer')

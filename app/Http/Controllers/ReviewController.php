@@ -16,9 +16,22 @@ class ReviewController extends Controller
         return view('review.review',compact('item'));
     }
 
-    public function edit()
+    public function edit($id)
     {
-        
+        $review = Review::findOrFail($id);
+        return view('review.edit',compact('review'));
+    }
+
+    public function update(Request $request,$id)
+    {
+        $review = Review::findOrFail($id);
+        $review->title = $request->title;
+        $review->review = $request->review;
+        $review->star = $request->score;
+        // dd($review);
+        $review->save();
+
+        return redirect()->route('item.show',[$review->item_id])->with('flash_message','編集完了しました');
     }
 
 
@@ -36,5 +49,13 @@ class ReviewController extends Controller
         $review->save();
 
         return redirect()->route('item.show',[$request->item_id])->with('flash_message','レビュー投稿完了');
+    }
+
+    public function destroy($id)
+    {
+        $review = Review::findOrFail($id);
+        $review->delete();
+
+        return redirect()->route('item.show',[$review->item_id])->with('flash_message','レビューを削除しました');
     }
 }

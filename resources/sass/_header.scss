@@ -3,17 +3,18 @@
     height: 130px;
     margin-bottom: 40px;
     position: relative;
-
 }
 .header-link{
     color: #BD996D;
     font-weight: bold;
     font-size: 12px;
     letter-spacing: 1px;
+
 }
 .header-link:hover{
     color: #BD996D;
     background-color: #314A6D;
+
 }
 .header-item{
     position: absolute;
@@ -30,25 +31,24 @@ ul{
 
 li{
     list-style: none;
+
 }
 
 li:nth-child(n+1):nth-child(-n+2){
-    margin-top: 20px;
-
+    margin-top: 60px;
 }
 
 li:nth-child(n+4):nth-child(-n+5){
-    margin-top: 20px;
+    margin-top: 60px;
 }
 
 li:nth-of-type(3){
-    font-weight: bold;
-    font-size: 40px;
     vertical-align: center;
 }
 
 .header-main-item{
     color: #BD996D;
+    padding: 5px;
 }
 
 .header-main-item:hover{

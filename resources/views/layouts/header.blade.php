@@ -26,8 +26,8 @@
     <div class="header-main"> <!--header-main-->
         <ul>
             <li ><a href="/item" class="header-main-item">商品一覧</a></li>
-            <li><a href="" class="header-main-item">ABOUT</a></li>
-            <li><a class="title" href="/">タイトル</a></li>
+            <li><a href="/about" class="header-main-item">ABOUT</a></li>
+            <li><a class="title" href="/"><img src="{{asset('images/logo.png')}}" width="200px" height="150px"></a></li>
             <li><a href="" class="header-main-item">NEWS</a></li>
             <li><a href="/cart" class="header-main-item">カートを見る</a></li>
         </ul>

@@ -17,6 +17,7 @@ $fa-font-path: "../webfonts"; //追記
 @import 'itempage';
 @import 'Itemshow';
 @import 'header';
+@import 'about';
 
 
 body{
@@ -69,7 +70,7 @@ button{
     background-color: #4F6E91;
 }
 
-.continue-btn{
+.sub-btn{
     display: inline-block;
     padding: 0.5em 1em;
     text-decoration: none;
@@ -79,14 +80,14 @@ button{
     border-radius: 3px;
 }
 
-.continue-btn:active{
+.sub-btn:active{
     /*ボタンを押したとき*/
   -webkit-transform: translateY(4px);
   transform: translateY(4px);/*下に動く*/
   border-bottom: none;/*線を消す*/
 }
 
-.continue-btn:hover{
+.sub-btn:hover{
     color: #FFF;
     background-color: #DEBE91;
 }
