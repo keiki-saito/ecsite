@@ -15,6 +15,6 @@ class DatabaseSeeder extends Seeder
          $this->call(categoryTableSeeder::class);
          $this->call(itemChairSeeder::class); #椅子専用シーダーファイル
          $this->call(itemDeskSeeder::class); #机専用シーダーファイル
-         $this->call(UserSeeder::class);
+
     }
 }

@@ -13,11 +13,15 @@ class BuyController extends Controller
 
     public function index()
     {
+
+
         $carts = Cart::where('user_id',Auth::id())->get(); #ログインユーザーがカートに入れている商品を取得
+        if(count($carts) === 0){
+            return redirect()->route('cart.index')->with('flash_message','カートに商品がありません');
+        }
         $user = Auth::user();
         $subAddresses = SubAddress::where('user_id',Auth::id())->get();
         $total = 0;
-
         foreach($carts as $cart){
             $total += $cart->item->fee * $cart->quantity;
         }

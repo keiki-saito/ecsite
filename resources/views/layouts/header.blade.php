@@ -4,13 +4,13 @@
 <div class="header-sub">  <!--header-sub-->
     <span class="header-item">
         @if(Auth::check())
-            <a class="header-link"  href="/user">ユーザーページ |</a>
+            <a class="header-link pr-1"  href="/user">ユーザーページ</a><span style="color: #BD996D;">|</span>
         @endif
 
 
     @if(Auth::check())
 
-        <a href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();" class="header-link">
+        <a href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();" class="header-link pl-1">
             ログアウト
         </a>
     </span>
@@ -32,6 +32,7 @@
             <li><a href="/cart" class="header-main-item">カートを見る</a></li>
         </ul>
     </div> <!--header-sub-->
+    
 </div>
 
 

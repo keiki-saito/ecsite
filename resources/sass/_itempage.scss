@@ -8,8 +8,7 @@
     box-shadow: 0 2px 5px #ccc;
   }
   .item-card:hover{
-      box-shadow: 0 5px 10px black;
-      transform: translate(0,-5px);
+      opacity: 0.8;
   }
   .item-card-img {
     border-radius: 5px 5px 0 0;

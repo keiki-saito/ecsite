@@ -29,5 +29,6 @@ class CreateSubAddressesTable extends Migration
     public function down()
     {
         Schema::dropIfExists('sub_addresses');
+        Schema::dropIfExists('users');
     }
 }

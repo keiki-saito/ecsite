@@ -18,7 +18,6 @@ class CreateCartsTable extends Migration
             $table->unsignedInteger('user_id');
             $table->unsignedInteger('item_id');
             $table->integer('quantity');
-            $table->boolean('completed')->default(false)->comment('購入完了かチェック');
             $table->timestamps();
         });
     }
@@ -31,5 +30,6 @@ class CreateCartsTable extends Migration
     public function down()
     {
         Schema::dropIfExists('carts');
+        Schema::dropIfExists('users');
     }
 }

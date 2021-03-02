@@ -2,11 +2,7 @@
 @include('layouts.header')
 
 @section('content')
-@if(session('flash_message'))
-    <div class="alert alert-success mt-4 mb-4">
-        {{session('flash_message')}}
-    </div>
-@endif
+
 
 <div class="search" style="margin: 0 auto;">
 <form method="GET" action="/item">
@@ -32,8 +28,8 @@
 
 <div class="flex">
 @foreach($items as $item)
-<section class="item-card fadeinItem">
-  <img class="item-card-img" src="{{ asset('/images/' . $item->image_path) }}" >
+<section class="item-card ">
+<a href="/item/{{$item->id}}"><img class="item-card-img" src="{{ asset('/images/' . $item->image_path) }}" ></a>
   <div class="item-card-content">
     <a href="/item/{{$item->id}}"><h1 class="item-card-title">{{$item->name}}</h1></a>
   </div>
