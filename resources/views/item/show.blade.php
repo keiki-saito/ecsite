@@ -3,6 +3,7 @@
 
 @section('content')
 
+
 <div class="show-page-item" style="margin: 0 auto;">
 <div class="card mb-3" style="max-width: 750px;">
   <div class="row no-gutters">
@@ -76,19 +77,32 @@
 
 
 <!-- レビュー投稿機能 -->
+
+
 <div class="review-post">
 <form action="/review" method="POST">
     @csrf
     <input type="hidden" name="item_id" value="{{$item->id}}">
     <label for="title">レビュータイトル</label><br>
     <input type="text" name="title" id="title" placeholder="レビュータイトルはなんですか？" style="width:300px;">
+    @error('title')
+      <p style="color: red;">{{$message}}</p>
+    @enderror
+
     <div class="form-group">
         <label for="review">レビュー</label><br>
         <textarea name="review" id="review" cols="80" rows="5"></textarea>
     </div>
+    @error('review')
+      <p style="color: red;">{{$message}}</p>
+    @enderror
+
     <div class="form-group">
         <p name="star" id="star"></p>
     </div>
+    @error('score')
+      <p style="color: red;">{{$message}}</p>
+    @enderror
     <div class="mt-4">
         <button type="submit" class="btn">投稿する</button>
     </div>
@@ -101,7 +115,7 @@
             starOff: "{{ asset('images/star-off.png') }}",
             starOn: "{{ asset('images/star-on.png') }}",
         });
-      
+
 
 
 </script>

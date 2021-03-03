@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
 use App\Review;
 use App\Item;
+use App\Http\Requests\ReviewRequest;
 use Illuminate\Http\Request;
 
 class ReviewController extends Controller
@@ -21,16 +22,18 @@ class ReviewController extends Controller
         $review->title = $request->title;
         $review->review = $request->review;
         $review->star = $request->score;
-    
+
         $review->save();
 
         return redirect()->route('item.show',[$review->item_id])->with('flash_message','編集完了しました');
     }
 
 
-    public function store(Request $request)
+    public function store(ReviewRequest $request)
     {
-
+        if(!Auth::user()){
+            return redirect()->route('login')->with('flash_message','ログインしてください');
+        }
         $review = new Review;
 
         $review->review = $request->review;
