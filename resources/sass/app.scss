@@ -18,7 +18,7 @@ $fa-font-path: "../webfonts"; //追記
 @import 'Itemshow';
 @import 'header';
 @import 'about';
-@import 'login';
+@import 'login_signup';
 
 
 body{
@@ -47,6 +47,12 @@ button{
     outline: none;
     padding: 0;
     appearance: none;
+}
+
+.error{
+    color: #e3342f;
+    font-size: 0.8;
+   
 }
 
 

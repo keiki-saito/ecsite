@@ -7,18 +7,17 @@
     <p class="title">ログイン</p>
     <input  type="text" placeholder="Email" name="email" autofocus/>
     <i class="fa fa-envelope"></i>
-
     @error('email')
-        <span class="invalid-feedback" role="alert">
-            <strong>{{ $message }}</strong>
+        <span class="error" role="alert">
+            <p>{{ $message }}</p>
         </span>
     @enderror
 
     <input type="password" placeholder="Password" name="password"/>
     <i class="fa fa-key"></i>
     @error('password')
-        <span class="invalid-feedback" role="alert">
-            <strong>{{ $message }}</strong>
+        <span class="error" role="alert">
+            <p>{{ $message }}</p>
         </span>
     @enderror
     <button type="submit">ログイン</button>

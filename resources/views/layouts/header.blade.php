@@ -18,8 +18,8 @@
         @csrf
     </form>
     @else
-        <a class="header-link" href="{{ route('register') }}">新規登録 |</a>
-        <a class="header-link" href="{{ route('login') }}">ログイン</a>
+        <a class="header-link pr-1" href="{{ route('register') }}">新規登録</a><span style="color: #BD996D;">|</span>
+        <a class="header-link pl-1" href="{{ route('login') }}">ログイン</a>
     @endif
     </div><!--header-sub-->
 
@@ -32,7 +32,7 @@
             <li><a href="/cart" class="header-main-item">カートを見る</a></li>
         </ul>
     </div> <!--header-sub-->
-    
+
 </div>
 
 

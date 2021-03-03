@@ -157,7 +157,11 @@ return [
     'attributes' => [
         'review'=>'レビュー',
         'score'=>'評価',
-        'title'=>'タイトル'
+        'title'=>'タイトル',
+        'name'=>'名前',
+        'address'=>'住所',
+        'phone_number'=>'電話番号',
+        'password'=>'パスワード'
     ],
 
 ];
