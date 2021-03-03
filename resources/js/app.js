@@ -1,3 +1,3 @@
 require('./bootstrap');
-require('./jquery');
+require('./slideshow');
 require('./jquery.raty');

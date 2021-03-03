@@ -16,10 +16,10 @@ class CreateItemsTable extends Migration
         Schema::create('items', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name',100);
-            $table->unsignedInteger('category_id');
-            $table->string('detail',500);
-            $table->integer('fee');
-            $table->string('image_path');
+            $table->unsignedInteger('category_id')->comment('商品のカテゴリー');
+            $table->string('detail',500)->comment('商品の説明');
+            $table->integer('fee')->comment('商品の料金');
+            $table->string('image_path')->comment('商品の画像');
             $table->timestamps();
         });
     }

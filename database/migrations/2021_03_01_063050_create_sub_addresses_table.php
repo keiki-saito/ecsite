@@ -16,7 +16,7 @@ class CreateSubAddressesTable extends Migration
         Schema::create('sub_addresses', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedInteger('user_id');
-            $table->string('sub_address');
+            $table->string('sub_address')->comment('会員登録時以外の住所');
             $table->timestamps();
         });
     }

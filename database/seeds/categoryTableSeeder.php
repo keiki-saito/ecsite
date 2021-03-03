@@ -15,8 +15,12 @@ class categoryTableSeeder extends Seeder
         DB::table('categories')->insert([
             ['category_name'=>'椅子'],
             ['category_name'=>'テーブル'],
-            ['category_name'=>'棚'],
             ['category_name'=>'ベッド'],
+            ['category_name'=>'ソファ'],
+            ['category_name'=>'カーテン'],
+            ['category_name'=>'収納・衣類収納'],
+            ['category_name'=>'本棚・ラック・シェルフ'],
+
         ]);
     }
 }
