@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 class AboutController extends Controller
 {
+
+    //Aboutページ
     public function about()
     {
         $item01 = Item::findOrFail(13);

@@ -17,8 +17,8 @@ class CreateReviewsTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedInteger('user_id');
             $table->unsignedInteger('item_id');
-            $table->text('review');
-            $table->integer('star');
+            $table->text('review')->comment('レビュー本文');
+            $table->integer('star')->comment('レビュースコア');
             $table->timestamps();
         });
     }

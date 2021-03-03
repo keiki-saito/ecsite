@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCategoriesTable extends Migration
+class AddTitleToReviewsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,8 @@ class CreateCategoriesTable extends Migration
      */
     public function up()
     {
-        Schema::create('categories', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->string('category_name')->comment('カテゴリーの名前');
-            $table->timestamps();
+        Schema::table('reviews', function (Blueprint $table) {
+            $table->string('title')->comment('レビューのタイトル');
         });
     }
 
@@ -27,6 +25,8 @@ class CreateCategoriesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('categories');
+        Schema::table('reviews', function (Blueprint $table) {
+            //
+        });
     }
 }

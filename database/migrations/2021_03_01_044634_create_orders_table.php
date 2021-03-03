@@ -17,7 +17,7 @@ class CreateOrdersTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedInteger('user_id');
             $table->unsignedInteger('item_id');
-            $table->integer('fee');
+            $table->integer('fee')->comment('購入時の商品料金');
             $table->timestamps();
         });
     }

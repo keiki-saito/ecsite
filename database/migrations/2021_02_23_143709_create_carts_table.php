@@ -17,7 +17,7 @@ class CreateCartsTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedInteger('user_id');
             $table->unsignedInteger('item_id');
-            $table->integer('quantity');
+            $table->integer('quantity')->comment('カートに入れた商品の量');
             $table->timestamps();
         });
     }

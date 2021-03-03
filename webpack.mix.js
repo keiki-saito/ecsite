@@ -13,7 +13,7 @@ const mix = require('laravel-mix');
 
 mix.js([
     'resources/js/app.js',
-    'resources/js/jquery.js',
+    'resources/js/slideshow.js',
     'resources/js/jquery.raty.js'
   ],
      'public/js')

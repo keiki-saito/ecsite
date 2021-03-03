@@ -18,7 +18,7 @@
                                         <p class="form-control-static">{{ old('name') }}</p>
                                         <input id="name" type="hidden" name="name" value="{{ old('name') }}">
                                     @else
-                                        <input id="name" type="text" class="form-control" name="name" value="{{ $user->name }}">
+                                        <input id="name" type="text" class="form-control" name="name" value="{{ old('name') ?  old('name') : $user->name }}">
                                     @endif
                                 </div>
                             </div>
@@ -32,10 +32,16 @@
                                     @else
                                     <select name="address" id="address">
                                         <option value="">-</option>
-                                        <option value="{{$user->address}}">{{$user->address}}</option>
+                                        <!-- old('address')と$user->addressの値が同じだったらselectedにする -->
+                                        <option value="{{$user->address}}" @if (  old('address')  ==  $user->address  ) selected @endif >
+                                            {{$user->address}}
+                                        </option>
                                         @if($subAddresses)
                                           @foreach($subAddresses as $subAddress)
-                                            <option value="{{$subAddress->sub_address}}">{{$subAddress->sub_address}}</option>
+                                          <!-- old('address')と$subAddress->sub_addressの値が同じだったらselectedにする -->
+                                            <option value="{{$subAddress->sub_address}}" @if (  old('address')  ==  $subAddress->sub_address  ) selected @endif >
+                                                {{$subAddress->sub_address}}
+                                            </option>
                                           @endforeach
                                         @endif
                                     </select>
@@ -52,7 +58,7 @@
                                         <p class="form-control-static">{{ old('sub_address') }}</p>
                                         <input id="sub_address" type="hidden" name="sub_address" value="{{ old('sub_address') }}">
                                     @else
-                                        <input id="sub_address" type="text" class="form-control" name="sub_address">
+                                        <input id="sub_address" type="text" class="form-control" name="sub_address" value="{{ old('sub_address') ?  old('sub_address') : ''}}">
                                     @endif
                                 </div>
                             </div>
@@ -65,7 +71,7 @@
                                         <p class="form-control-static">{{ old('phone_number') }}</p>
                                         <input id="phone_number" type="hidden" name="phone_number" value="{{ old('phone_number') }}">
                                     @else
-                                        <input id="phone_number" type="text" class="form-control" name="phone_number" value="{{ old('phone_number') }}">
+                                        <input id="phone_number" type="text" class="form-control" name="phone_number" value="{{$user->phone_number}}">
                                     @endif
                                 </div>
                             </div>
@@ -73,10 +79,10 @@
                             <div class="form-row">
                                 <div class="col-md-6">
                                     @if(Request::has('confirm'))
-                                        <button type="submit" class="btn btn-primary" name="post">注文を確定する</button>
-                                        <button type="submit" class="btn btn-default" name="back">修正する</button>
+                                        <button type="submit" class="btn" name="post">注文を確定する</button>
+                                        <button type="submit" class="btn" name="back">修正する</button>
                                     @else
-                                        <button type="submit" class="btn btn-primary" name="confirm">入力内容を確認する</button>
+                                        <button type="submit" class="btn" name="confirm">入力内容を確認する</button>
                                     @endif
                                 </div>
                             </div>
