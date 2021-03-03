@@ -4,7 +4,7 @@
 <div class="header-sub">  <!--header-sub-->
     <span class="header-item">
         @if(Auth::check())
-            <a class="header-link pr-1"  href="/user">ユーザーページ</a><span style="color: #BD996D;">|</span>
+            <a class="header-link pr-1"  href="/user/{{Auth::id()}}">ユーザーページ</a><span style="color: #BD996D;">|</span>
         @endif
 
 

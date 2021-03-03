@@ -17389,7 +17389,8 @@ li:nth-of-type(3) {
 }
 
 .login,
-.signup {
+.signup,
+.edit {
   border-radius: 2px 2px 5px 5px;
   padding: 10px 20px 20px 20px;
   width: 90%;
@@ -17401,7 +17402,8 @@ li:nth-of-type(3) {
 }
 
 .login input,
-.signup input {
+.signup input,
+.edit input {
   display: block;
   padding: 15px 10px;
   margin-bottom: 10px;
@@ -17413,7 +17415,8 @@ li:nth-of-type(3) {
 }
 
 .login input + i.fa,
-.signup input + i.fa {
+.signup input + i.fa,
+.edit input + i.fa {
   color: #fff;
   font-size: 1em;
   position: absolute;
@@ -17424,7 +17427,8 @@ li:nth-of-type(3) {
 }
 
 .login input:focus,
-.signup input:focus {
+.signup input:focus,
+.edit input:focus {
   outline: none;
   color: #444;
   border-color: #3E597C;
@@ -17432,14 +17436,16 @@ li:nth-of-type(3) {
 }
 
 .login input:focus + i.fa,
-.signup input:focus + i.fa {
+.signup input:focus + i.fa,
+.edit input:focus + i.fa {
   opacity: 1;
   left: 30px;
   transition: all 0.25s ease-out;
 }
 
 .login .title,
-.signup .title {
+.signup .title,
+.edit .title {
   color: #3E597C;
   font-size: 1.2em;
   font-weight: bold;
@@ -17449,7 +17455,8 @@ li:nth-of-type(3) {
 }
 
 .login button,
-.signup button {
+.signup button,
+.edit button {
   width: 100%;
   height: 100%;
   padding: 10px 10px;
@@ -17470,13 +17477,15 @@ li:nth-of-type(3) {
 }
 
 .login button:hover,
-.signup button:hover {
+.signup button:hover,
+.edit button:hover {
   color: #FFF;
   background-color: #4F6E91;
 }
 
 .login button:focus,
-.signup button:focus {
+.signup button:focus,
+.edit button:focus {
   border-bottom-width: 4px;
 }
 

@@ -6,6 +6,7 @@
 <div>
     <div>こんにちは、</div>
     <div>{{$user->name}}さん</div>
+    <a href="/user/{{Auth::id()}}/edit">編集</a>
 </div>
 
     <h2>購入履歴</h2>
