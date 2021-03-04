@@ -45,7 +45,7 @@ npm run watch
 
 ### カラム追加
 ```
-php artisan make:migration add_user_id_to_posts_table --table=posts
+pt_user_id_to_posts_table --table=posts
 ```
 
 
