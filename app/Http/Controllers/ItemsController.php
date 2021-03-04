@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 use App\Item;
 use App\Review;
-use App\category;
+use App\Category;
 use App\Order;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
