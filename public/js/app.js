@@ -37380,6 +37380,8 @@ __webpack_require__(/*! ./zipcode */ "./resources/js/zipcode.js");
 
 __webpack_require__(/*! ./address-radio */ "./resources/js/address-radio.js");
 
+__webpack_require__(/*! ./category_search */ "./resources/js/category_search.js");
+
 /***/ }),
 
 /***/ "./resources/js/bootstrap.js":
@@ -37424,6 +37426,22 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 //     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
 //     encrypted: true
 // });
+
+/***/ }),
+
+/***/ "./resources/js/category_search.js":
+/*!*****************************************!*\
+  !*** ./resources/js/category_search.js ***!
+  \*****************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+$(function () {
+  $("#category_id").on('change', function () {
+    var val = $('#category_id').val();
+    $("#search_form").submit();
+  });
+});
 
 /***/ }),
 
@@ -38265,15 +38283,18 @@ $(function () {
 /***/ }),
 
 /***/ 0:
-/*!***********************************************************************************************************************!*\
-  !*** multi ./resources/js/app.js ./resources/js/slideshow.js ./resources/js/jquery.raty.js ./resources/sass/app.scss ***!
-  \***********************************************************************************************************************/
+/*!*******************************************************************************************************************************************************************************************************************!*\
+  !*** multi ./resources/js/app.js ./resources/js/slideshow.js ./resources/js/jquery.raty.js ./resources/js/zipcode.js ./resources/js/address-radio.js ./resources/js/category_search.js ./resources/sass/app.scss ***!
+  \*******************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(/*! /Applications/MAMP/htdocs/ecsite/resources/js/app.js */"./resources/js/app.js");
 __webpack_require__(/*! /Applications/MAMP/htdocs/ecsite/resources/js/slideshow.js */"./resources/js/slideshow.js");
 __webpack_require__(/*! /Applications/MAMP/htdocs/ecsite/resources/js/jquery.raty.js */"./resources/js/jquery.raty.js");
+__webpack_require__(/*! /Applications/MAMP/htdocs/ecsite/resources/js/zipcode.js */"./resources/js/zipcode.js");
+__webpack_require__(/*! /Applications/MAMP/htdocs/ecsite/resources/js/address-radio.js */"./resources/js/address-radio.js");
+__webpack_require__(/*! /Applications/MAMP/htdocs/ecsite/resources/js/category_search.js */"./resources/js/category_search.js");
 module.exports = __webpack_require__(/*! /Applications/MAMP/htdocs/ecsite/resources/sass/app.scss */"./resources/sass/app.scss");
 
 

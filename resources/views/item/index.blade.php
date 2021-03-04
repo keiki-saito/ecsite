@@ -5,12 +5,12 @@
 
 
 <div class="search" style="margin: 0 auto;">
-<form method="GET" action="/item">
+<form method="GET" action="/item" id="search_form">
  <div class="input-group">
     <div class="input-group-prepend">
       <select name="category_id" id="category_id" class="category_select">
           @foreach($categories as $id=>$category)
-             <option value="{{$id}}">{{$category}}</option>
+             <option value="{{$id}}" @if($category_id ==  $id) selected @endif>{{$category}}</option>
           @endforeach
       </select>
   </div>

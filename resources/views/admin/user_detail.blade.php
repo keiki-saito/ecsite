@@ -14,6 +14,8 @@
 				<li class="list-group-item">作成日: {{ $user->created_at->format('Y/m/d H:i:s') }}</li>
 				<li class="list-group-item">更新日: {{ $user->updated_at->format('Y/m/d H:i:s') }}</li>
 			</ul>
+
+            
 		</div>
 	</div>
 </div>
