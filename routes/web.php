@@ -33,30 +33,30 @@ Route::get('/about','AboutController@about');
 Route::group(['middleware' => ['auth.admin']], function () {
 
 	//管理側トップ
-	Route::get('/admin', 'admin\AdminTopController@show');
+	Route::get('/admin', 'Admin\AdminTopController@show');
 	//ログアウト実行
-	Route::post('/admin/logout', 'admin\AdminLogoutController@logout');
+	Route::post('/admin/logout', 'Admin\AdminLogoutController@logout');
 	//ユーザー一覧
-	Route::get('/admin/user_list', 'admin\ManageUserController@showUserList');
+	Route::get('/admin/user_list', 'Admin\ManageUserController@showUserList');
 	//ユーザー詳細
-	Route::get('/admin/user/{id}', 'admin\ManageUserController@showUserDetail');
+	Route::get('/admin/user/{id}', 'Admin\ManageUserController@showUserDetail');
     //商品一覧
-    Route::get('/admin/item_list', 'admin\ManageItemController@index')->name('item.index');
+    Route::get('/admin/item_list', 'Admin\ManageItemController@index')->name('item.index');
     //商品詳細
-    Route::get('/admin/item/{id}', 'admin\ManageItemController@show')->name('item.show');
+    Route::get('/admin/item/{id}', 'Admin\ManageItemController@show')->name('item.show');
     //商品情報編集
-    Route::get('/admin/item/{id}/edit', 'admin\ManageItemController@edit');
+    Route::get('/admin/item/{id}/edit', 'Admin\ManageItemController@edit');
     //商品情報アップデート
-    Route::put('/admin/item/{id}/', 'admin\ManageItemController@update')->name('update');
+    Route::put('/admin/item/{id}/', 'Admin\ManageItemController@update')->name('update');
     //商品情報新規作成
-    Route::get('/admin/add', 'admin\ManageItemController@add')->name('item_add');
+    Route::get('/admin/add', 'Admin\ManageItemController@add')->name('item_add');
     //新規作成実行
-    Route::post('/admin/create', 'admin\ManageItemController@create')->name('item_create');
+    Route::post('/admin/create', 'Admin\ManageItemController@create')->name('item_create');
 });
 
 //管理側ログイン
-Route::get('/admin/login', 'admin\AdminLoginController@showLoginform');
-Route::post('/admin/login', 'admin\AdminLoginController@login');
+Route::get('/admin/login', 'Admin\AdminLoginController@showLoginform');
+Route::post('/admin/login', 'Admin\AdminLoginController@login');
 
 
 
