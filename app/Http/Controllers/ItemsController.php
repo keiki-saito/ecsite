@@ -12,7 +12,7 @@ class ItemsController extends Controller
 {
     public function index (Request $request)
     {
-        $category= new Category;
+        $category= new Category; //カテゴリー
         $categories = $category->getCategories();
         $category_id=$request->category_id;
         $keyword=$request->keyword;
