@@ -13,6 +13,12 @@ const mix = require('laravel-mix');
 
 mix.js([
     'resources/js/app.js',
-    'resources/js/jquery.js'],
+    'resources/js/slideshow.js',
+    'resources/js/jquery.raty.js',
+    'resources/js/zipcode.js',
+    'resources/js/address-radio.js',
+    'resources/js/category_search.js',
+
+  ],
      'public/js')
     .sass('resources/sass/app.scss', 'public/css');

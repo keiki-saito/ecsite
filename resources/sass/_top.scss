@@ -6,9 +6,44 @@
 
 }
 
-.slideshow img{
+.slide-item img{
     display: none;
     position: absolute;
     left: 50%;
     margin-left: -800px;
 }
+
+.slide-item p{
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    -ms-transform: translate(-50%,-50%);
+    -webkit-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+    margin:0;
+    padding:0;
+    font-size: 55px;
+    font-weight: bold;
+    color: #243A5E;
+
+}
+
+
+.fadein {
+    opacity : 0;
+    transform: translateY(20px);
+    transition: all 1s;
+    display: flex;
+   margin: 5px 0;
+}
+.fadein img{
+    width: 500px;
+}
+  .fadein:nth-child(2n+1) {
+      flex-direction: row-reverse;
+    }         /* 奇数番目は左から右へ並べる */
+.fadein:nth-child(2n) {
+    flex-direction: row;
+}
+
+
