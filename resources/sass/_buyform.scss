@@ -1,0 +1,14 @@
+.cart_item{
+    display: flex;
+    &_image{
+        flex-grow: 2;
+    }
+    &_info{
+        width: 500px;
+    }
+}
+
+.total{
+    padding-left: 520px;
+    margin-bottom: 50px;
+}

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\User;
 use App\Order;
+use App\SubAddress;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 

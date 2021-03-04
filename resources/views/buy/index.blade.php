@@ -1,10 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container">
-        <div class="row justify-content-center" style="margin-bottom:10px;">
-            <div class="col-md-8">
-                <div class="card">
+    <div class="form-container" style="margin: 0 auto;">
+        <div style="margin-bottom:150px; width:1000px;">
+                <div class="card" width="1200px">
                     <div class="card-header">
                         お届け先入力
                     </div>
@@ -22,18 +21,26 @@
                                     @endif
                                 </div>
                             </div>
+                            @if(!Request::has('confirm'))
 
-                            <div class="form-row mb-1">
+                                <label>
+                                    <input name="type" type="radio" value="registered">登録済みの住所を使う
+                                </label>
+                                <label>
+                                    <input name="type" type="radio" value="new">新しい住所を追加する
+                                </label>
+                            @endif
+                            <div class="form-row mb-1 address">
                                 <div class="form-group col-md-6">
-                                    <label for="address">登録済みの住所を使う</label>
                                     @if(Request::has('confirm'))
+                                       <label for="address">住所</label>
                                         <p class="form-control-static">{{ old('address') }}</p>
                                         <input id="address" type="hidden" name="address" value="{{ old('address') }}">
                                     @else
-                                    <select name="address" id="address">
+                                    <select name="address" id="address-radio">
                                         <option value="">-</option>
                                         <!-- old('address')と$user->addressの値が同じだったらselectedにする -->
-                                        <option value="{{$user->address}}" @if (  old('address')  ==  $user->address  ) selected @endif >
+                                        <option value="{{$user->address}}" @if (  old('address')  ==  $user->address  ) selected @endif  >
                                             {{$user->address}}
                                         </option>
                                         @if($subAddresses)
@@ -50,15 +57,20 @@
                                 </div>
                             </div>
 
-                            <p>新しい住所を追加する</p>
-                            <div class="form-row mb-1">
+
+                            <div class="form-row mb-1 sub-address">
                                 <div class="form-group col-md-6">
-                                    <label for="sub_address">住所2</label>
                                     @if(Request::has('confirm'))
-                                        <p class="form-control-static">{{ old('sub_address') }}</p>
-                                        <input id="sub_address" type="hidden" name="sub_address" value="{{ old('sub_address') }}">
+                                    <p class="form-control-static">{{ old('sub_address') }}</p>
+                                    <input id="sub_address" type="hidden" name="sub_address" value="{{ old('sub_address') }}">
                                     @else
-                                        <input id="sub_address" type="text" class="form-control" name="sub_address" value="{{ old('sub_address') ?  old('sub_address') : ''}}">
+                                    <div id="subAddress-radio" >
+                                        <p>新しい住所を追加する</p>
+                                          <input type="text" id="search-word" class="zipcode-search">
+                                          <button id="search-btn" type="button">検索する</button>
+                                            <label for="sub_address">住所2</label>
+                                            <input  id="sub_address" type="text" class="form-control" name="sub_address" value="{{ old('sub_address') ?  old('sub_address') : ''}}">
+                                    </div>
                                     @endif
                                 </div>
                             </div>
@@ -91,25 +103,24 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="card">
-                    @foreach ($carts as $cart)
-                        <div class="card-header">
-                            {{ $cart->item->name }}
-                        </div>
-                        <div class="card-body">
-                            <div>
-                                {{ $cart->item->fee }}円
-                            </div>
-                            <div>
-                                {{ $cart->quantity }}個
-                            </div>
-                        </div>
-                    @endforeach
-                </div>
+
+
+            @foreach($carts as $cart)
+            <div class="cart_item">
+                    <div class="cart_item_image">
+                        <img src="{{ asset('/images/' . $cart->item->image_path) }}" width="130px">
+                        <div>{{$cart->item->name}}</div>
+                    </div>
+                    <div class="cart_item_info">
+                        <div><span class="mr-3">数量：{{$cart->quantity}}個</span>{{$cart->item->fee * $cart->quantity}}円</div>
+                    </div>
             </div>
+            <hr>
+            @endforeach
+            <div class="total">合計金額：{{$total}}円</div>
         </div>
     </div>
+
+
+
 @endsection

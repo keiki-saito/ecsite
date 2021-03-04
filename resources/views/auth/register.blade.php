@@ -6,7 +6,7 @@
       @csrf
     <p class="title">新規登録</p>
 
-    <input type="text" placeholder="名前" name="name" autofocus>
+    <input type="text" placeholder="名前" name="name" autofocus >
     <i class="fa fa-user"></i>
     @error('name')
         <span class="error" role="alert">
@@ -30,8 +30,9 @@
         </span>
     @enderror
 
-
-    <input  type="text" placeholder="住所" name="address"/>
+    <input type="text" id="search-word" class="zipcode-search" >
+    <button id="search-btn" type="button">検索する</button>
+    <input  type="text" id="address" placeholder="住所" name="address" />
     <i class="fa fa-house-user"></i>
     @error('address')
         <span class="error" role="alert">
@@ -41,7 +42,7 @@
 
 
 
-    <input type="password" placeholder="パスワード" name="password"/>
+    <input type="password" placeholder="パスワード" name="password" />
     <i class="fa fa-key"></i>
     @error('password')
         <span class="error" role="alert">
@@ -49,7 +50,7 @@
         </span>
     @enderror
 
-    <input type="password" placeholder="パスワード確認" name="password_confirmation"/>
+    <input type="password" placeholder="パスワード確認" name="password_confirmation" />
     <i class="fa fa-key"></i>
     @error('password_confirmation')
         <span class="error" role="alert">

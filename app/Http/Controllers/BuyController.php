@@ -25,7 +25,7 @@ class BuyController extends Controller
         foreach($carts as $cart){
             $total += $cart->item->fee * $cart->quantity;
         }
-        return view('buy.index',compact('carts','user','subAddresses'));
+        return view('buy.index',compact('carts','user','subAddresses','total'));
     }
 
     #購入処理
@@ -44,7 +44,6 @@ class BuyController extends Controller
                 $order->fee = $cart->item->fee;
                 $order->save();
             }
-            return view('buy.completed');
 
             if ($request->sub_address) {
                 $subAddress = new SubAddress;
@@ -52,9 +51,12 @@ class BuyController extends Controller
                 $subAddress->sub_address = $request->sub_address;
                 $subAddress->save();
             }
+
+            return view('buy.completed');
+
         }
 
-        $request->flash();
+         $request->flash();
         return $this->index();
     }
 

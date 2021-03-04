@@ -77,7 +77,8 @@
 
 
 <!-- レビュー投稿機能 -->
-
+<!--ユーザーが商品を購入していたらレビュー投稿可能 -->
+  @if(!count($orders) == 0)
 
 <div class="review-post">
 <form action="/review" method="POST">
@@ -108,6 +109,9 @@
     </div>
 </form>
 </div>
+@endif
+
+
 
 <script>
         $('#star').raty({

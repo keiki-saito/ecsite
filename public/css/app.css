@@ -17095,7 +17095,7 @@ readers do not read off random characters that represent icons */
   height: 1000px;
 }
 
-.slideshow img {
+.slide-item img {
   display: none;
   position: absolute;
   left: 50%;
@@ -17112,6 +17112,28 @@ readers do not read off random characters that represent icons */
   font-size: 55px;
   font-weight: bold;
   color: #243A5E;
+}
+
+.fadein {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 1s;
+  display: flex;
+  margin: 5px 0;
+}
+
+.fadein img {
+  width: 500px;
+}
+
+.fadein:nth-child(2n+1) {
+  flex-direction: row-reverse;
+}
+
+/* 奇数番目は左から右へ並べる */
+
+.fadein:nth-child(2n) {
+  flex-direction: row;
 }
 
 .item-card {
@@ -17430,7 +17452,7 @@ li:nth-of-type(3) {
 .signup input:focus,
 .edit input:focus {
   outline: none;
-  color: #444;
+  color: #111;
   border-color: #3E597C;
   border-left-width: 35px;
 }
@@ -17454,9 +17476,9 @@ li:nth-of-type(3) {
   padding-bottom: 20px;
 }
 
-.login button,
-.signup button,
-.edit button {
+.login button[type=submit],
+.signup button[type=submit],
+.edit button[type=submit] {
   width: 100%;
   height: 100%;
   padding: 10px 10px;
@@ -17487,6 +17509,23 @@ li:nth-of-type(3) {
 .signup button:focus,
 .edit button:focus {
   border-bottom-width: 4px;
+}
+
+.cart_item {
+  display: flex;
+}
+
+.cart_item_image {
+  flex-grow: 2;
+}
+
+.cart_item_info {
+  width: 500px;
+}
+
+.total {
+  padding-left: 520px;
+  margin-bottom: 50px;
 }
 
 body {
@@ -17571,27 +17610,5 @@ button {
 .sub-btn:hover {
   color: #FFF;
   background-color: #DEBE91;
-}
-
-.fadein {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: all 1s;
-  display: flex;
-  margin: 5px 0;
-}
-
-.fadein img {
-  width: 500px;
-}
-
-.fadein:nth-child(2n+1) {
-  flex-direction: row-reverse;
-}
-
-/* 奇数番目は左から右へ並べる */
-
-.fadein:nth-child(2n) {
-  flex-direction: row;
 }
 
