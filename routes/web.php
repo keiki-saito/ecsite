@@ -41,9 +41,17 @@ Route::group(['middleware' => ['auth.admin']], function () {
 	//ユーザー詳細
 	Route::get('/admin/user/{id}', 'admin\ManageUserController@showUserDetail');
     //商品一覧
-    Route::get('/admin/item_list', 'admin\ManageItemController@showItemList');
+    Route::get('/admin/item_list', 'admin\ManageItemController@index')->name('item.index');
     //商品詳細
-    Route::get('/admin/item/{id}', 'admin\ManageItemController@showItemDetail');
+    Route::get('/admin/item/{id}', 'admin\ManageItemController@show')->name('item.show');
+    //商品情報編集
+    Route::get('/admin/item/{id}/edit', 'admin\ManageItemController@edit');
+    //商品情報アップデート
+    Route::put('/admin/item/{id}/', 'admin\ManageItemController@update')->name('update');
+    //商品情報新規作成
+    Route::get('/admin/add', 'admin\ManageItemController@add')->name('item_add');
+    //新規作成実行
+    Route::post('/admin/create', 'admin\ManageItemController@create')->name('item_create');
 });
 
 //管理側ログイン

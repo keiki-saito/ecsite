@@ -17,6 +17,7 @@ mix.js([
     'resources/js/jquery.raty.js',
     'resources/js/zipcode.js',
     'resources/js/address-radio.js',
+    'resources/js/category_search.js',
 
   ],
      'public/js')

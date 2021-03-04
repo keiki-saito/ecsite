@@ -11,6 +11,9 @@
             <div>
                 <a href="{{url('admin/item_list') }}" class="btn">商品一覧</a>
             </div>
+            <div>
+                <a href="{{url('admin/add' )}}" class="btn">新規追加</a>
+            </div>
 
 			<form method="post" action="{{ url('admin/logout') }}">
 				@csrf
