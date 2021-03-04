@@ -27,30 +27,30 @@
         <div class="col-3">
             <img src="{{asset('/images/'. $item01->image_path)}}" width="100%">
             <div style="text-align :center;">
-                {{$item01->fee}}円<br>
-                {{$item01->name}}
+                {{$item01->name}}<br>
+                {{$item01->fee}}円
             </div>
         </div>
         <div class="col-3">
             <img src="{{asset('/images/'.$item02->image_path)}}" width="100%">
             <div style="text-align :center;">
-                {{$item02->fee}}円<br>
-                {{$item02->name}}
+                {{$item02->name}}<br>
+                {{$item02->fee}}円
             </div>
 
         </div>
         <div class="col-3">
             <img src="{{asset('/images/'.$item03->image_path)}}" width="100%">
             <div style="text-align :center;">
-                {{$item03->fee}}円<br>
-                {{$item03->name}}
+                {{$item03->name}}<br>
+                {{$item03->fee}}円
             </div>
         </div>
         <div class="col-3">
             <img src="{{asset('/images/'. $item04->image_path)}}" width="100%">
             <div style="text-align :center;">
-                {{$item04->fee}}円<br>
-                {{$item04->name}}
+                {{$item04->name}}<br>
+                {{$item04->fee}}円
             </div>
         </div>
         </div>

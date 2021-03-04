@@ -43,6 +43,11 @@ php artisan make:controller HelloController
 npm run watch
 ```
 
+### カラム追加
+```
+pt_user_id_to_posts_table --table=posts
+```
+
 
 
 

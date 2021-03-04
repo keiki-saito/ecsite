@@ -13,7 +13,7 @@
         </span>
     @enderror
 
-    <input type="password" placeholder="Password" name="password"/>
+    <input type="password" placeholder="パスワード" name="password"/>
     <i class="fa fa-key"></i>
     @error('password')
         <span class="error" role="alert">

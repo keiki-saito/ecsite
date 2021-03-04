@@ -37327,6 +37327,42 @@ module.exports = function(module) {
 
 /***/ }),
 
+/***/ "./resources/js/address-radio.js":
+/*!***************************************!*\
+  !*** ./resources/js/address-radio.js ***!
+  \***************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var _require = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js"),
+    add = _require.add;
+
+$(function () {
+  var address = $('#address-radio');
+  var switchBtn = $('input[name=type]');
+  var subAddress = $('#subAddress-radio');
+  address.hide(); //最初はaddressを隠しておく
+
+  subAddress.hide(); //最初はsubAddressを隠しておく
+
+  switchBtn.on('change', function () {
+    var inputValue = $(this).val(); //registeredが選択されている時
+
+    if (inputValue === 'registered') {
+      address.show();
+      subAddress.hide();
+      $('#sub_address').val('');
+      $('#search-word').val(''); //newが選択されている時
+    } else {
+      subAddress.show();
+      address.hide();
+      address.children('option').prop('selected', false); //selectedを解除する
+    }
+  });
+});
+
+/***/ }),
+
 /***/ "./resources/js/app.js":
 /*!*****************************!*\
   !*** ./resources/js/app.js ***!
@@ -37339,6 +37375,10 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 __webpack_require__(/*! ./slideshow */ "./resources/js/slideshow.js");
 
 __webpack_require__(/*! ./jquery.raty */ "./resources/js/jquery.raty.js");
+
+__webpack_require__(/*! ./zipcode */ "./resources/js/zipcode.js");
+
+__webpack_require__(/*! ./address-radio */ "./resources/js/address-radio.js");
 
 /***/ }),
 
@@ -38168,6 +38208,48 @@ $(function () {
   ScrollReveal().reveal('.headline');
 });
 ;
+
+/***/ }),
+
+/***/ "./resources/js/zipcode.js":
+/*!*********************************!*\
+  !*** ./resources/js/zipcode.js ***!
+  \*********************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var _require = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js"),
+    type = _require.type;
+
+$(function () {
+  //検索ボタンがクリックされたら
+  $('#search-btn').on('click', function () {
+    //入力された郵便番号の処理
+    var zipCode = $('#search-word').val(); //ajaxを使って、郵便番号APIへリクエストを送る
+
+    $.ajax({
+      //通信をするブロック
+      url: 'https://zipcloud.ibsnet.co.jp/api/search',
+      type: 'GET',
+      dataType: 'jsonp',
+      //通信結果のフォーマットを決める
+      data: {
+        zipcode: zipCode
+      }
+    }).done(function (data) {
+      //通信が成功した時
+      //dataには通信の結果が格納される
+      console.log(data);
+      var prefecture = data.results[0].address1;
+      var city = data.results[0].address2;
+      var address = data.results[0].address3;
+      $('#address').val(prefecture + city + address);
+      $('#sub_address').val(prefecture + city + address);
+    }).fail(function (error) {//通信が失敗した時
+      //errorには失敗の原因などが格納される
+    });
+  });
+});
 
 /***/ }),
 

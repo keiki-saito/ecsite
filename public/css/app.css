@@ -17095,7 +17095,7 @@ readers do not read off random characters that represent icons */
   height: 1000px;
 }
 
-.slideshow img {
+.slide-item img {
   display: none;
   position: absolute;
   left: 50%;
@@ -17112,6 +17112,28 @@ readers do not read off random characters that represent icons */
   font-size: 55px;
   font-weight: bold;
   color: #243A5E;
+}
+
+.fadein {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 1s;
+  display: flex;
+  margin: 5px 0;
+}
+
+.fadein img {
+  width: 500px;
+}
+
+.fadein:nth-child(2n+1) {
+  flex-direction: row-reverse;
+}
+
+/* 奇数番目は左から右へ並べる */
+
+.fadein:nth-child(2n) {
+  flex-direction: row;
 }
 
 .item-card {
@@ -17389,7 +17411,8 @@ li:nth-of-type(3) {
 }
 
 .login,
-.signup {
+.signup,
+.edit {
   border-radius: 2px 2px 5px 5px;
   padding: 10px 20px 20px 20px;
   width: 90%;
@@ -17401,7 +17424,8 @@ li:nth-of-type(3) {
 }
 
 .login input,
-.signup input {
+.signup input,
+.edit input {
   display: block;
   padding: 15px 10px;
   margin-bottom: 10px;
@@ -17413,7 +17437,8 @@ li:nth-of-type(3) {
 }
 
 .login input + i.fa,
-.signup input + i.fa {
+.signup input + i.fa,
+.edit input + i.fa {
   color: #fff;
   font-size: 1em;
   position: absolute;
@@ -17424,22 +17449,25 @@ li:nth-of-type(3) {
 }
 
 .login input:focus,
-.signup input:focus {
+.signup input:focus,
+.edit input:focus {
   outline: none;
-  color: #444;
+  color: #111;
   border-color: #3E597C;
   border-left-width: 35px;
 }
 
 .login input:focus + i.fa,
-.signup input:focus + i.fa {
+.signup input:focus + i.fa,
+.edit input:focus + i.fa {
   opacity: 1;
   left: 30px;
   transition: all 0.25s ease-out;
 }
 
 .login .title,
-.signup .title {
+.signup .title,
+.edit .title {
   color: #3E597C;
   font-size: 1.2em;
   font-weight: bold;
@@ -17448,8 +17476,9 @@ li:nth-of-type(3) {
   padding-bottom: 20px;
 }
 
-.login button,
-.signup button {
+.login button[type=submit],
+.signup button[type=submit],
+.edit button[type=submit] {
   width: 100%;
   height: 100%;
   padding: 10px 10px;
@@ -17470,14 +17499,33 @@ li:nth-of-type(3) {
 }
 
 .login button:hover,
-.signup button:hover {
+.signup button:hover,
+.edit button:hover {
   color: #FFF;
   background-color: #4F6E91;
 }
 
 .login button:focus,
-.signup button:focus {
+.signup button:focus,
+.edit button:focus {
   border-bottom-width: 4px;
+}
+
+.cart_item {
+  display: flex;
+}
+
+.cart_item_image {
+  flex-grow: 2;
+}
+
+.cart_item_info {
+  width: 500px;
+}
+
+.total {
+  padding-left: 520px;
+  margin-bottom: 50px;
 }
 
 body {
@@ -17562,27 +17610,5 @@ button {
 .sub-btn:hover {
   color: #FFF;
   background-color: #DEBE91;
-}
-
-.fadein {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: all 1s;
-  display: flex;
-  margin: 5px 0;
-}
-
-.fadein img {
-  width: 500px;
-}
-
-.fadein:nth-child(2n+1) {
-  flex-direction: row-reverse;
-}
-
-/* 奇数番目は左から右へ並べる */
-
-.fadein:nth-child(2n) {
-  flex-direction: row;
 }
 
