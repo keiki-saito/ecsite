@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Cart;
+use App\Item;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
@@ -24,6 +25,13 @@ class CartController extends Controller
     public function store(Request $request)
     {
         $cart = new Cart;
+        $item = Item::where('id',$request->item_id)->first(); #カートに入れた商品情報を取得
+        $item->stock -= $request->quantity; #購入した数在庫から引く
+        $item->save(); #保存
+        if($item->stock == 0){
+            $item->stock_flag = 1;
+            $item->save();
+        }
         $cart->user_id = Auth::user()->id;
         $cart->item_id = $request->item_id;
         $cart->quantity = $request->quantity;
