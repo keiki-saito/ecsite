@@ -39,8 +39,7 @@
             @csrf
             <input type="hidden" name="item_id" value="{{$item->id}}">
             <select name="quantity">
-                <option value="">-</option>
-                @for($i=1;$i<=100;$i++)
+                @for($i=1;$i<=$item->stock;$i++)
                 <option value="{{$i}}">{{$i}}</option>
                 @endfor
             </select>個

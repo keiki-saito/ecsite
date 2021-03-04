@@ -17,6 +17,7 @@ class ItemsController extends Controller
         $category_id=$request->category_id;
         $keyword=$request->keyword;
         $items = Item::orderBy('id')
+        ->where('stock_flag',0)
         ->category($category_id)
         ->searchName($keyword)
         ->get();
