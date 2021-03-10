@@ -41,17 +41,19 @@ Route::group(['middleware' => ['auth.admin']], function () {
 	//ユーザー詳細
 	Route::get('/admin/user/{id}', 'Admin\ManageUserController@showUserDetail');
     //商品一覧
-    Route::get('/admin/item_list', 'Admin\ManageItemController@index')->name('item.index');
+    Route::get('/admin/item_list', 'Admin\ManageItemController@index')->name('admin.item.index');
     //商品詳細
-    Route::get('/admin/item/{id}', 'Admin\ManageItemController@show')->name('item.show');
+    Route::get('/admin/item/{id}', 'Admin\ManageItemController@show')->name('admin.item.show');
     //商品情報編集
     Route::get('/admin/item/{id}/edit', 'Admin\ManageItemController@edit');
     //商品情報アップデート
-    Route::put('/admin/item/{id}/', 'Admin\ManageItemController@update')->name('update');
+    Route::put('/admin/item/{id}/', 'Admin\ManageItemController@update')->name('admin.item.update');
     //商品情報新規作成
-    Route::get('/admin/add', 'Admin\ManageItemController@add')->name('item_add');
+    Route::get('/admin/add', 'Admin\ManageItemController@add')->name('admin.item_add');
     //新規作成実行
-    Route::post('/admin/create', 'Admin\ManageItemController@create')->name('item_create');
+    Route::post('/admin/create', 'Admin\ManageItemController@create')->name('admin.item_create');
+    //購入情報
+    Route::get('/admin/order_list','Admin\ManageOrderController@index')->name('admin.order_list');
 });
 
 //管理側ログイン

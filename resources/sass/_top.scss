@@ -1,19 +1,17 @@
-.slideshow{
+.top_img{
     overflow: hidden;
     position: relative;
-    min-width: 960px;
-    height: 1000px;
-
+    width: 100vw;
+    height: 800px;
+    margin-bottom: 100px;
+    background-image: url('/images/top_image02.jpg');
+    background-position:center;
+    background-repeat: no-repeat;
+    background-size:cover;
 }
 
-.slide-item img{
-    display: none;
-    position: absolute;
-    left: 50%;
-    margin-left: -800px;
-}
 
-.slide-item p{
+.top_img p{
     position: absolute;
     top: 20%;
     left: 50%;

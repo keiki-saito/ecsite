@@ -33,27 +33,38 @@ class BuyController extends Controller
     {
 
         $carts = Cart::where('user_id',Auth::id())->get(); #ログインユーザーがカートに入れている商品を取得
-        if ($request->has('post')) {
-            foreach ($carts as $cart) {
-                $cart->delete();
-                #orderテーブルにインサートする処理
-                $order = new Order;
-                $order->user_id = Auth::id();
-                $order->item_id = $cart->item->id;
-                $order->quantity = $cart->quantity;
-                $order->fee = $cart->item->fee;
-                $order->save();
+        \DB::beginTransaction();
+        try{
+            if ($request->has('post')) {
+                //わざと例外を出すための
+                // if($request->has('post')){
+                //     throw new \Exception;
+                // }
+                foreach ($carts as $cart) {
+                    #orderテーブルにインサートする処理
+                    $order = new Order;
+                    $order->user_id = Auth::id();
+                    $order->item_id = $cart->item->id;
+                    $order->quantity = $cart->quantity; //購入個数
+                    $order->fee = $cart->item->fee;
+                    $order->save();
+                    $cart->delete();
+                }
+
+
+                if ($request->sub_address) {
+                    $subAddress = new SubAddress;
+                    $subAddress->user_id =  Auth::id();
+                    $subAddress->sub_address = $request->sub_address;
+                    $subAddress->save();
+                }
+                \DB::commit();
+                return view('buy.completed'); //購入完了画面に遷移
             }
-
-            if ($request->sub_address) {
-                $subAddress = new SubAddress;
-                $subAddress->user_id =  Auth::id();
-                $subAddress->sub_address = $request->sub_address;
-                $subAddress->save();
-            }
-
-            return view('buy.completed');
-
+        } catch(\Exception $e){
+            \DB::rollBack();
+            session()->flash('flash_message','購入に失敗しました');
+            \Log::error('Error when completing order. ' . $e->getMessage());
         }
 
          $request->flash();

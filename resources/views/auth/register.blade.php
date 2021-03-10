@@ -30,8 +30,9 @@
         </span>
     @enderror
 
-    <input type="text" id="search-word" class="zipcode-search" >
-    <button id="search-btn" type="button">検索する</button>
+   <input type="text" id="search-word" class="zipcode-search" style="width: 200px; ">
+    <i class="fa fa-tenge"></i>
+    <span><button id="search-btn" type="button" class="btn mb-2" >検索する</button></span>
     <input  type="text" id="address" placeholder="住所" name="address" />
     <i class="fa fa-house-user"></i>
     @error('address')

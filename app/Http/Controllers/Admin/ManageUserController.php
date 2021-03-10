@@ -6,7 +6,7 @@ use App\User;
 class ManageUserController extends Controller
 {
 	function showUserList(){
-		$user_list = User::orderBy("id", "desc")->paginate(10);
+		$user_list = User::all();
 		return view("admin.user_list", [
 			"user_list" => $user_list
 		]);

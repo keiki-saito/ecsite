@@ -37372,8 +37372,6 @@ $(function () {
 
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
-__webpack_require__(/*! ./slideshow */ "./resources/js/slideshow.js");
-
 __webpack_require__(/*! ./jquery.raty */ "./resources/js/jquery.raty.js");
 
 __webpack_require__(/*! ./zipcode */ "./resources/js/zipcode.js");
@@ -38199,36 +38197,6 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
 
 /***/ }),
 
-/***/ "./resources/js/slideshow.js":
-/*!***********************************!*\
-  !*** ./resources/js/slideshow.js ***!
-  \***********************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-$(function () {
-  $('.slideshow').each(function () {
-    var $slides = $(this).find('img'),
-        slideCount = $slides.length,
-        currentIndex = 0;
-    $slides.eq(currentIndex).fadeIn();
-    setInterval(showNextSlide, 3000);
-
-    function showNextSlide() {
-      var nextIndex = (currentIndex + 1) % slideCount;
-      $slides.eq(currentIndex).fadeOut();
-      $slides.eq(nextIndex).fadeIn();
-      currentIndex = nextIndex;
-    }
-  });
-});
-$(function () {
-  ScrollReveal().reveal('.headline');
-});
-;
-
-/***/ }),
-
 /***/ "./resources/js/zipcode.js":
 /*!*********************************!*\
   !*** ./resources/js/zipcode.js ***!
@@ -38283,14 +38251,13 @@ $(function () {
 /***/ }),
 
 /***/ 0:
-/*!*******************************************************************************************************************************************************************************************************************!*\
-  !*** multi ./resources/js/app.js ./resources/js/slideshow.js ./resources/js/jquery.raty.js ./resources/js/zipcode.js ./resources/js/address-radio.js ./resources/js/category_search.js ./resources/sass/app.scss ***!
-  \*******************************************************************************************************************************************************************************************************************/
+/*!***************************************************************************************************************************************************************************************!*\
+  !*** multi ./resources/js/app.js ./resources/js/jquery.raty.js ./resources/js/zipcode.js ./resources/js/address-radio.js ./resources/js/category_search.js ./resources/sass/app.scss ***!
+  \***************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(/*! /Applications/MAMP/htdocs/ecsite/resources/js/app.js */"./resources/js/app.js");
-__webpack_require__(/*! /Applications/MAMP/htdocs/ecsite/resources/js/slideshow.js */"./resources/js/slideshow.js");
 __webpack_require__(/*! /Applications/MAMP/htdocs/ecsite/resources/js/jquery.raty.js */"./resources/js/jquery.raty.js");
 __webpack_require__(/*! /Applications/MAMP/htdocs/ecsite/resources/js/zipcode.js */"./resources/js/zipcode.js");
 __webpack_require__(/*! /Applications/MAMP/htdocs/ecsite/resources/js/address-radio.js */"./resources/js/address-radio.js");

@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-  <form  method="POST" action="{{ route('item_create') }}">
+  <form  method="POST" action="{{ route('admin.item_create') }}">
       @csrf
 
     <p class="title">商品情報編集</p>

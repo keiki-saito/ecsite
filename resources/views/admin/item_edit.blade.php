@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-  <form  method="POST" action="{{ route('update', $item->id) }}">
+  <form  method="POST" action="{{ route('admin.item.update', $item->id) }}">
       @csrf
       @method('PUT')
     <p class="title">商品情報編集</p>

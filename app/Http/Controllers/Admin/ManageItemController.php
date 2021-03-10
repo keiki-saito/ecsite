@@ -60,7 +60,7 @@ class ManageItemController extends Controller
         $item->stock = $request->stock;
         $item->save();
 
-        return redirect()->route('item.index');
+        return redirect()->route('admin.item.index');
     }
 
     public function edit($id)
@@ -81,7 +81,7 @@ class ManageItemController extends Controller
         }
         $item->save();
 
-        return redirect()->route('item.show',[$item->id])->with('flash_message',' 商品情報を編集しました');
+        return redirect()->route('admin.item.show',[$item->id])->with('flash_message',' 商品情報を編集しました');
 
     }
 }

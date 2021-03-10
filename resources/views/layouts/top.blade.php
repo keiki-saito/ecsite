@@ -4,25 +4,12 @@
 
 @section('content')
 
-<div class="slideshow" >
-    <div class="slide-item">
-        <img src="{{asset('/images/top_image01.jpg')}}" width="1600" height="700">
+
+    <div class="top_img">
+        
         <p class="top_title">Selected Furniture</p>
     </div>
 
-    <div class="slide-item">
-        <img src="{{asset('/images/top_image02.jpg')}}" width="1600" height="700">
-        <p class="top_title">Selected Furniture</p>
-    </div>
-    <div class="slide-item">
-        <img src="{{asset('/images/top_image06.jpg')}}" width="1600" height="700">
-        <p>Selected Furniture</p>
-    </div>
-    <div class="slide-item">
-        <img src="{{asset('/images/top_image04.jpg')}}" width="1600" height="700">
-        <p>Selected Furniture</p>
-    </div>
-</div>
 
 <div class="container">
 <div class="fadein mb-4">

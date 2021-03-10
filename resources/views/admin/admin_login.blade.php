@@ -25,7 +25,7 @@
 				PASS: <input class="form-control" type="password" name="password" value="" />
 			</div>
 			<div class="mt-3">
-				<input class="btn btn-primary" type="submit" value="ログイン" />
+				<input class="btn" type="submit" value="ログイン" />
 			</div>
 			</form>
 

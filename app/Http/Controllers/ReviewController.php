@@ -34,6 +34,7 @@ class ReviewController extends Controller
         if(!Auth::user()){
             return redirect()->route('login')->with('flash_message','ログインしてください');
         }
+        
         $review = new Review;
 
         $review->review = $request->review;
