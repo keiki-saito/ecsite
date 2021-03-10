@@ -7,7 +7,6 @@ $(function(){
         //入力された郵便番号の処理
         let zipCode =$('#search-word').val();
 
-
         //ajaxを使って、郵便番号APIへリクエストを送る
         $.ajax({
             //通信をするブロック
@@ -31,4 +30,8 @@ $(function(){
             //errorには失敗の原因などが格納される
         })
     })
+    $.fn.autokana('#name', '#furigana', { katakana: true });
+
+
 })
+

@@ -6,13 +6,14 @@
       @csrf
     <p class="title">新規登録</p>
 
-    <input type="text" placeholder="名前" name="name" autofocus >
+    <input type="text" placeholder="名前" name="name" id="name" autofocus >
     <i class="fa fa-user"></i>
     @error('name')
         <span class="error" role="alert">
             <p>{{ $message }}</p>
         </span>
     @enderror
+    <input type="text" id="namekana">
 
     <input  type="text" placeholder="Email" name="email" />
     <i class="fa fa-envelope"></i>
@@ -64,4 +65,10 @@
 
   </p>
 </div>
+
+<script>
+$(function() {
+     $.fn.autoKana('#name', '#namekana');
+});
+</script>
 @endsection

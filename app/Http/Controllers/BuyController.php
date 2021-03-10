@@ -35,14 +35,15 @@ class BuyController extends Controller
         $carts = Cart::where('user_id',Auth::id())->get(); #ログインユーザーがカートに入れている商品を取得
         \DB::beginTransaction();
         try{
-            if ($request->has('post')) {
-                //わざと例外を出すための
-                // if($request->has('post')){
+        if ($request->has('post')) {
+            //わざと例外を出すための
+            // if($request->has('post')){
                 //     throw new \Exception;
                 // }
                 foreach ($carts as $cart) {
                     #orderテーブルにインサートする処理
                     $order = new Order;
+
                     $order->user_id = Auth::id();
                     $order->item_id = $cart->item->id;
                     $order->quantity = $cart->quantity; //購入個数
@@ -63,8 +64,10 @@ class BuyController extends Controller
             }
         } catch(\Exception $e){
             \DB::rollBack();
+            report($e);
             session()->flash('flash_message','購入に失敗しました');
-            \Log::error('Error when completing order. ' . $e->getMessage());
+            $this->index();
+            //\Log::error('Error when completing order. ' . $e->getMessage());
         }
 
          $request->flash();

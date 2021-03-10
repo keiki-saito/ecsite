@@ -10,7 +10,7 @@
     <title>SelectedFurniture</title>
 
     <script src="{{ asset('js/app.js') }}" ></script>
-
+    
 
 
     <script src="https://unpkg.com/scrollreveal"></script>

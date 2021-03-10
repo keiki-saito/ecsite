@@ -6,9 +6,15 @@
 
 
     <div class="top_img">
-        
         <p class="top_title">Selected Furniture</p>
     </div>
+
+
+
+
+
+
+
 
 
 <div class="container">
@@ -41,7 +47,15 @@ $(function(){
             }
         });
     });
+
+  
+
+
 });
+
+
+
+
 </script>
 
 
