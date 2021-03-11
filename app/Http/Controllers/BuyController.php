@@ -83,7 +83,7 @@ class BuyController extends Controller
         }
 
         $request->flash();
-        //return $this->index();
+        return $this->index();
     }
 
 
