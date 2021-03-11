@@ -10,7 +10,7 @@
     <title>SelectedFurniture</title>
 
     <script src="{{ asset('js/app.js') }}" ></script>
-    
+
 
 
     <script src="https://unpkg.com/scrollreveal"></script>
@@ -45,5 +45,9 @@
 
 
 </body>
-
+<script>
+  $(function() {
+    setTimeout("$('.alert').fadeOut('slow')", 2000);
+  });
+</script>
 </html>

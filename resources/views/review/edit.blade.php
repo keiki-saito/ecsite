@@ -26,6 +26,7 @@
             size: 36,
             starOff: "{{ asset('images/star-off.png') }}",
             starOn: "{{ asset('images/star-on.png') }}",
+            score: '{{$score}}'
         });
 </script>
 @endsection

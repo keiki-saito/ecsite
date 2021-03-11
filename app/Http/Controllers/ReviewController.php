@@ -13,7 +13,9 @@ class ReviewController extends Controller
     public function edit($id)
     {
         $review = Review::findOrFail($id);
-        return view('review.edit',compact('review'));
+        $score=$review->star;
+        // dd($score);
+        return view('review.edit',compact('review','score'));
     }
 
     public function update(Request $request,$id)
@@ -34,7 +36,7 @@ class ReviewController extends Controller
         if(!Auth::user()){
             return redirect()->route('login')->with('flash_message','ログインしてください');
         }
-        
+
         $review = new Review;
 
         $review->review = $request->review;
@@ -51,6 +53,8 @@ class ReviewController extends Controller
     public function destroy($id)
     {
         $review = Review::findOrFail($id);
+
+
         $review->delete();
 
         return redirect()->route('item.show',[$review->item_id])->with('flash_message','レビューを削除しました');

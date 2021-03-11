@@ -24,7 +24,7 @@ Route::resource('item', 'ItemsController', ['only' => [ 'index','show']]);
 Route::resource('review','ReviewController',['only'=>['store','edit','update','destroy']]);
 Route::resource('cart','CartController',['only'=>['index','store','destroy']]);
 Route::resource('user','UserController',['only'=>['show','edit','update']]);
-Route::get('/buy', 'BuyController@index');
+Route::get('/buy', 'BuyController@index')->middleware('auth');
 Route::post('/buy', 'BuyController@store');
 Route::get('/about','AboutController@about');
 
@@ -54,6 +54,8 @@ Route::group(['middleware' => ['auth.admin']], function () {
     Route::post('/admin/create', 'Admin\ManageItemController@create')->name('admin.item_create');
     //購入情報
     Route::get('/admin/order_list','Admin\ManageOrderController@index')->name('admin.order_list');
+    //購入情報詳細ページ
+    Route::get('/admin/order/{id}','Admin\ManageOrderController@show')->name('admin.order.show');
 });
 
 //管理側ログイン

@@ -5,18 +5,18 @@
     <thead>
         <tr>
             <th>購入者</th>
-            <th>商品名</th>
-            <th>価格</th>
             <th>購入日</th>
+            <th>合計金額</th>
+            <th>詳細</th>
         </tr>
     </thead>
     <tbody>
-        @foreach($orders as $order)
+        @foreach($main_orders as $main_order)
         <tr>
-           <td>{{$order->user->name}}</td>
-           <td><a href="/admin/item/{{$order->item->id}}">{{$order->item->name}}</a></td>
-           <td>{{$order->item->fee * $order->quantity}}円({{$order->quantity}}個)</td>
-           <td>{{$order->created_at}}</td>
+            <td>{{$main_order->user->name}}</td>
+            <td>{{$main_order->created_at}}</td>
+            <td>{{$main_order->total}}円</td>
+            <td><a href="{{url('/admin/order/'.$main_order->id)}}">購入詳細</a></td>
         </tr>
         @endforeach
     </tbody>

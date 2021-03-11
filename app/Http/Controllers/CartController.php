@@ -24,6 +24,10 @@ class CartController extends Controller
 
     public function store(Request $request)
     {
+        if(!Auth::user()){
+            return redirect()->route('login')->with('flash_message','ログインしてください');
+        }
+        
         $cart = new Cart;
         $item = Item::where('id',$request->item_id)->first(); #カートに入れた商品情報を取得
         $item->stock -= $request->quantity; #購入した数を在庫から引く

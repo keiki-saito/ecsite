@@ -15,7 +15,7 @@
                 <a href="{{url('admin/add' )}}" class="btn">新規追加</a>
             </div>
             <div>
-                <a href="{{ url('admin/order_list') }}">購入情報</a>
+                <a href="{{ url('admin/order_list') }}" class="btn">購入情報</a>
             </div>
 
 			<form method="post" action="{{ url('admin/logout') }}">
