@@ -28,12 +28,7 @@
     </div>
 @endforeach
 
-@foreach($MainOrders as $MainOrder)
-<div>{{$MainOrder->created_at}}</div>
-@foreach($MainOrder->orders as $order)
-<div>{{$order->item->name}}</div>
-@endforeach
-@endforeach
+
 </div>
 
 
