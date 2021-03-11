@@ -35,7 +35,7 @@ class BuyController extends Controller
 
         $carts = Cart::where('user_id',Auth::id())->get(); #ログインユーザーがカートに入れている商品を取得
 
-        if ($request->has('POST')) {
+        // if ($request->has('POST')) {
                 $total = 0;
                 #支払い金額計算
                 foreach ($carts as $cart) {
@@ -58,7 +58,6 @@ class BuyController extends Controller
                     $order->quantity = $cart->quantity; //購入個数
                     $order->fee = $cart->item->fee;
                     $order->save();
-                    //dd($order);
                     $cart->delete();
                 }
 
@@ -80,7 +79,7 @@ class BuyController extends Controller
                     }
                 }
                 return view('buy.completed'); //購入完了画面に遷移
-        }
+        // }
 
         $request->flash();
         return $this->index();
