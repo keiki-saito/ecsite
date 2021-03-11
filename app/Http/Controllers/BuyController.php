@@ -36,23 +36,23 @@ class BuyController extends Controller
         $carts = Cart::where('user_id',Auth::id())->get(); #ログインユーザーがカートに入れている商品を取得
 
         if ($request->has('POST')) {
-        \DB::beginTransaction();
-            try{
-            //わざと例外を出すための
-            // if($request->has('post')){
+            \DB::beginTransaction();
+            try {
+                //わざと例外を出すための
+                // if($request->has('post')){
                 //     throw new \Exception;
                 // }
                 $total = 0;
                 #支払い金額計算
-                foreach($carts as $cart){
-                     $total += $cart->item->fee * $cart->quantity;
+                foreach ($carts as $cart) {
+                    $total += $cart->item->fee * $cart->quantity;
                 }
 
                 $MainOrder = new MainOrder;
                 $MainOrder->user_id=Auth::id();
                 $MainOrder->total = $total;
                 $MainOrder->save();
-                //dd($MainOrder);
+
 
                 //orderに商品情報を入れる処理
                 foreach ($carts as $cart) {
@@ -70,16 +70,16 @@ class BuyController extends Controller
 
                 //追加住所の処理
                 if ($request->sub_address) {
-                    $subAddresses = SubAddress::where('user_id',Auth::id())->get();
+                    $subAddresses = SubAddress::where('user_id', Auth::id())->get();
                     $already=false; //すでに住所が登録しているかのフラグ
                     //dd($subAddresses);
-                    foreach($subAddresses as $subAddress){
-                         if($subAddress == $request->sub_address || Auth::user()->address == $request->sub_address){
+                    foreach ($subAddresses as $subAddress) {
+                        if ($subAddress == $request->sub_address || Auth::user()->address == $request->sub_address) {
                             return;
                             $already=true;
                         }
                     }
-                    if($already){
+                    if ($already) {
                         $subAddress = new SubAddress;
                         $subAddress->user_id =  Auth::id();
                         $subAddress->sub_address = $request->sub_address;
@@ -92,16 +92,14 @@ class BuyController extends Controller
                 \DB::rollBack();
                 report($e);
                 session()->flash('flash_message','購入に失敗しました');
-                $this->index();
+                //$this->index();
             }
-            //\Log::error('Error when completing order. ' . $e->getMessage());
+
         }
 
          $request->flash();
         return $this->index();
     }
-
-
 
 
 }
