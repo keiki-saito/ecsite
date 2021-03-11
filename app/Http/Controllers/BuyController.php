@@ -35,7 +35,9 @@ class BuyController extends Controller
 
         $carts = Cart::where('user_id',Auth::id())->get(); #ログインユーザーがカートに入れている商品を取得
 
-        if ($request->has('POST')) {
+        if ($request->has('post')) {
+            \DB::beginTransaction();
+            try {
                 $total = 0;
                 #支払い金額計算
                 foreach ($carts as $cart) {
@@ -78,7 +80,13 @@ class BuyController extends Controller
                         $subAddress->save();
                     }
                 }
+                \DB::commit();
                 return view('buy.completed'); //購入完了画面に遷移
+            } catch(\Exception $e){
+                \DB::rollback();
+                report($e);
+                session()->flash('flash_message', '購入に失敗しました');
+            }
         }
 
         $request->flash();
