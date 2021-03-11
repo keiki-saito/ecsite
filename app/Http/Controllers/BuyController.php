@@ -36,11 +36,6 @@ class BuyController extends Controller
         $carts = Cart::where('user_id',Auth::id())->get(); #ログインユーザーがカートに入れている商品を取得
 
         if ($request->has('POST')) {
-
-                //わざと例外を出すための
-                // if($request->has('post')){
-                //     throw new \Exception;
-                // }
                 $total = 0;
                 #支払い金額計算
                 foreach ($carts as $cart) {
@@ -74,7 +69,6 @@ class BuyController extends Controller
                     //dd($subAddresses);
                     foreach ($subAddresses as $subAddress) {
                         if ($subAddress == $request->sub_address || Auth::user()->address == $request->sub_address) {
-                            return;
                             $already=true;
                         }
                     }
@@ -88,8 +82,8 @@ class BuyController extends Controller
                 return view('buy.completed'); //購入完了画面に遷移
         }
 
-         $request->flash();
-        return $this->index();
+        $request->flash();
+        //return $this->index();
     }
 
 
