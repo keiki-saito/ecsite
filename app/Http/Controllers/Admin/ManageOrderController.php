@@ -15,8 +15,8 @@ class ManageOrderController extends Controller
     public function index()
     {
         //$orders = Order::all();
-        $main_orders = MainOrder::all();
-        return view('admin.order_list',compact('main_orders'));
+        $MainOrders = MainOrder::all();
+        return view('admin.order_list',compact('MainOrders'));
     }
 
     public function show($id)

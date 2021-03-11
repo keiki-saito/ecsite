@@ -11,12 +11,12 @@
         </tr>
     </thead>
     <tbody>
-        @foreach($main_orders as $main_order)
+        @foreach($MainOrders as $MainOrder)
         <tr>
-            <td>{{$main_order->user->name}}</td>
-            <td>{{$main_order->created_at}}</td>
-            <td>{{$main_order->total}}円</td>
-            <td><a href="{{url('/admin/order/'.$main_order->id)}}">購入詳細</a></td>
+            <td>{{$MainOrder->user->name}}</td>
+            <td>{{$MainOrder->created_at}}</td>
+            <td>{{$MainOrder->total}}円</td>
+            <td><a href="{{url('/admin/order/'.$MainOrder->id)}}">購入詳細</a></td>
         </tr>
         @endforeach
     </tbody>
