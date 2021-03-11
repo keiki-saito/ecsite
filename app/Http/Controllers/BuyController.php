@@ -35,10 +35,10 @@ class BuyController extends Controller
 
         $carts = Cart::where('user_id',Auth::id())->get(); #ログインユーザーがカートに入れている商品を取得
 
-        
 
 
-        if ($request->has('post')) {
+
+        if ($request->has('POST')) {
         \DB::beginTransaction();
             try{
             //わざと例外を出すための
