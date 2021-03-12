@@ -67,13 +67,18 @@ class BuyController extends Controller
                 if ($request->sub_address) {
                     $subAddresses = SubAddress::where('user_id', Auth::id())->get();
                     $already=false; //すでに住所が登録しているかのフラグ
-                    //dd($subAddresses);
+                    //登録済みの住所かチェック
                     foreach ($subAddresses as $subAddress) {
-                        if ($subAddress == $request->sub_address || Auth::user()->address == $request->sub_address) {
+                        if ($subAddress->sub_address == $request->sub_address || Auth::user()->address == $request->sub_address) {
                             $already=true;
                         }
+                        //登録済みであったらforeach終了
+                        if($already){
+                            break;
+                        }
                     }
-                    if ($already) {
+                    //未登録の場合新しく登録
+                    if (!$already) {
                         $subAddress = new SubAddress;
                         $subAddress->user_id =  Auth::id();
                         $subAddress->sub_address = $request->sub_address;
