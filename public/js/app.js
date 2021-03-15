@@ -38510,7 +38510,9 @@ $(function () {
 
       var all_total = Number(total) + Number(shipping); //商品料金と送料を足した金額
 
-      $('#all_total').text(all_total + '円'); //console.log(total)
+      $('#all_total').text(all_total + '円');
+      $('.hidden_all_total').val(all_total);
+      $('.hidden_shipping').val(shipping);
     }).fail(function (error) {//通信が失敗した時
       //errorには失敗の原因などが格納される
     });
@@ -38569,7 +38571,6 @@ $(function () {
       type: 'POST',
       // ルーティングで設定したURL
       url: '/shipping',
-      // 引数も渡せる
       dataType: 'json'
     }).done(function (results) {
       var total = results;
@@ -38577,18 +38578,20 @@ $(function () {
       var all_total = Number(total) + Number(shipping); //商品料金と送料を足した金額
 
       $('#all_total').text(all_total + '円');
+      $('.hidden_all_total').val(all_total);
+      $('.hidden_shipping').val(shipping);
     });
   });
-  /**** 確認画面で送料と合計金額を表示させるため ****/
+  /**** フォーカスアウト *****/
 
-  $(window).ready(function () {
-    var address = $('.old_address').text();
+  $('#sub_address').focusout(function () {
+    var address = $('#sub_address').val();
     var prefecture_pattern = new RegExp('^(.{2}[都道府県]|.{3}県)', 'gm'); //正規表現を使う準備
 
-    var prefecture = address.match(prefecture_pattern);
-    var shipping; //送料
+    var prefecture = address.match(prefecture_pattern); //正規表現に基づいて都道府県名を抜き出し
 
-    console.log(prefecture[0]); //首都圏
+    var shipping; //送料
+    //首都圏
 
     if (prefecture[0] === '東京都' || prefecture[0] === '神奈川県' || prefecture[0] === '埼玉県' || prefecture[0] === '千葉県' || prefecture[0] === '茨城県' || prefecture[0] === '栃木県' || prefecture[0] === '山梨県' || prefecture[0] === '群馬県') {
       shipping = 0;
@@ -38627,13 +38630,11 @@ $(function () {
     $('#shipping').text(shipping + '円');
     var total = $('#total').text().replace(/商品合計：/g, '').replace(/円/g, ''); //商品合計金額
 
-    console.log(total);
     var all_total = Number(total) + Number(shipping); //商品料金と送料を足した金額
 
     $('#all_total').text(all_total + '円');
     $('.hidden_all_total').val(all_total);
-  }).fail(function (jqXHR, textStatus, errorThrown) {// 失敗したときのコールバック
-  }).always(function () {// 成否に関わらず実行されるコールバック
+    $('.hidden_shipping').val(shipping);
   });
 });
 

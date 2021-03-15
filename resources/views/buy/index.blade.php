@@ -87,8 +87,14 @@
                                     @endif
                                 </div>
                             </div>
-
+                            @if(Request::has('confirm'))
+                            <input type="hidden" name="all_total" class="hidden_all_total" value="{{old('all_total')}}">
+                            <input type="hidden" name="shipping" class="hidden_shipping" value="{{old('shipping')}}">
+                            @else
                             <input type="hidden" name="all_total" class="hidden_all_total">
+                            <input type="hidden" name="shipping" class="hidden_shipping">
+                            @endif
+
 
                             <div class="form-row">
                                 <div class="col-md-6">
@@ -121,8 +127,16 @@
             @endforeach
             <div class="total">
                 <div id="total">商品合計：{{$total}}円</div>
+                @if(Request::has('confirm'))
+                <div>送料：<span id="shipping" style="margin-left: 2.8rem ;">{{ old('shipping') }}円</span></div>
+                @else
                 <div>送料：<span id="shipping" style="margin-left: 2.8rem ;"></span></div>
+                @endif
+                @if(Request::has('confirm'))
+                <div>合計金額：<span id="all_total">{{ old('all_total') }}円</span></div>
+                @else
                 <div>合計金額：<span id="all_total"></span></div>
+                @endif
             </div>
         </div>
     </div>

@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
+
+use App\User;
 use App\Cart;
 use App\Order;
 use App\SubAddress;
@@ -14,19 +16,20 @@ class BuyController extends Controller
 
     public function index()
     {
-        $carts = Cart::where('user_id',Auth::id())->get(); #ログインユーザーがカートに入れている商品を取得
+        $carts = Cart::where('user_id', Auth::id())->get(); #ログインユーザーがカートに入れている商品を取得
         #カートの中身が無い時の処理
-        if(count($carts) === 0){
-            return redirect()->route('cart.index')->with('flash_message','カートに商品がありません');
+        if (count($carts) === 0) {
+            return redirect()->route('cart.index')->with('flash_message', 'カートに商品がありません');
         }
         $user = Auth::user();
-        $subAddresses = SubAddress::where('user_id',Auth::id())->get();
+        $point = $user->point;
+        $subAddresses = SubAddress::where('user_id', Auth::id())->get();
         $total = 0;
         #支払い金額計算
-        foreach($carts as $cart){
+        foreach ($carts as $cart) {
             $total += $cart->item->fee * $cart->quantity;
         }
-        return view('buy.index',compact('carts','user','subAddresses','total'));
+        return view('buy.index', compact('carts', 'user', 'subAddresses', 'total', 'point'));
     }
 
     #購入処理
@@ -34,20 +37,28 @@ class BuyController extends Controller
     {
 
 
-        $carts = Cart::where('user_id',Auth::id())->get(); #ログインユーザーがカートに入れている商品を取得
+        //dd($request->all());
+        $carts = Cart::where('user_id', Auth::id())->get(); #ログインユーザーがカートに入れている商品を取得
 
         if ($request->has('post')) {
 
             \DB::beginTransaction();
             try {
+               
                 $total = 0;
                 #支払い金額計算
                 foreach ($carts as $cart) {
                     $total += $cart->item->fee * $cart->quantity;
                 }
 
+                //ポイント加算
+                $user = User::where('id', Auth::id())->first();
+                $user->point +=  floor($total / 10);
+                $user->save();
+
+
                 $MainOrder = new MainOrder;
-                $MainOrder->user_id=Auth::id();
+                $MainOrder->user_id = Auth::id();
                 $MainOrder->total = $request->all_total;
                 $MainOrder->save();
 
@@ -68,14 +79,14 @@ class BuyController extends Controller
                 //追加住所の処理
                 if ($request->sub_address) {
                     $subAddresses = SubAddress::where('user_id', Auth::id())->get();
-                    $already=false; //すでに住所が登録しているかのフラグ
+                    $already = false; //すでに住所が登録しているかのフラグ
                     //登録済みの住所かチェック
                     foreach ($subAddresses as $subAddress) {
                         if ($subAddress->sub_address == $request->sub_address || Auth::user()->address == $request->sub_address) {
-                            $already=true;
+                            $already = true;
                         }
                         //登録済みであったらforeach終了
-                        if($already){
+                        if ($already) {
                             break;
                         }
                     }
@@ -89,7 +100,7 @@ class BuyController extends Controller
                 }
                 \DB::commit();
                 return view('buy.completed'); //購入完了画面に遷移
-            } catch(\Exception $e){
+            } catch (\Exception $e) {
                 \DB::rollback();
                 report($e);
                 session()->flash('flash_message', '購入に失敗しました');
@@ -99,6 +110,4 @@ class BuyController extends Controller
         $request->flash();
         return $this->index();
     }
-
-
 }
