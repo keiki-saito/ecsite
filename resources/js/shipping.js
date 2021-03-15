@@ -110,7 +110,7 @@ $(function() {
         $('#shipping').text(shipping + '円');
         let total = $('#total')
           .text()
-          .replace(/合計金額：/g, '')
+          .replace(/商品合計：/g, '')
           .replace(/円/g, ''); //商品合計金額
         let all_total = Number(total) + Number(shipping); //商品料金と送料を足した金額
         $('#all_total').text(all_total + '円');
@@ -121,7 +121,7 @@ $(function() {
         //errorには失敗の原因などが格納される
       });
   });
-  
+
 
   /**** 既存の住所を選んだ時 ****/
   $('#address-radio').change(function() {
@@ -338,8 +338,9 @@ $(function() {
       $('#shipping').text(shipping + '円');
       let total = $('#total')
         .text()
-        .replace(/合計金額：/g, '')
+        .replace(/商品合計：/g, '')
         .replace(/円/g, ''); //商品合計金額
+        console.log(total)
       let all_total = Number(total) + Number(shipping); //商品料金と送料を足した金額
       $('#all_total').text(all_total + '円');
       $('.hidden_all_total').val(all_total);

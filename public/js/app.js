@@ -38506,7 +38506,7 @@ $(function () {
       }
 
       $('#shipping').text(shipping + '円');
-      var total = $('#total').text().replace(/合計金額：/g, '').replace(/円/g, ''); //商品合計金額
+      var total = $('#total').text().replace(/商品合計：/g, '').replace(/円/g, ''); //商品合計金額
 
       var all_total = Number(total) + Number(shipping); //商品料金と送料を足した金額
 
@@ -38625,8 +38625,9 @@ $(function () {
     }
 
     $('#shipping').text(shipping + '円');
-    var total = $('#total').text().replace(/合計金額：/g, '').replace(/円/g, ''); //商品合計金額
+    var total = $('#total').text().replace(/商品合計：/g, '').replace(/円/g, ''); //商品合計金額
 
+    console.log(total);
     var all_total = Number(total) + Number(shipping); //商品料金と送料を足した金額
 
     $('#all_total').text(all_total + '円');
