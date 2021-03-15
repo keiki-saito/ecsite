@@ -67,8 +67,6 @@
 </div>
 
 <script>
-$(function() {
      $.fn.autoKana('#name', '#namekana');
-});
 </script>
 @endsection

@@ -33,9 +33,11 @@ class BuyController extends Controller
     public function store(Request $request)
     {
 
+
         $carts = Cart::where('user_id',Auth::id())->get(); #ログインユーザーがカートに入れている商品を取得
 
         if ($request->has('post')) {
+
             \DB::beginTransaction();
             try {
                 $total = 0;
@@ -46,7 +48,7 @@ class BuyController extends Controller
 
                 $MainOrder = new MainOrder;
                 $MainOrder->user_id=Auth::id();
-                $MainOrder->total = $total;
+                $MainOrder->total = $request->all_total;
                 $MainOrder->save();
 
 

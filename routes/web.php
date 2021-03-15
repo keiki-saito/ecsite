@@ -27,6 +27,7 @@ Route::resource('user','UserController',['only'=>['show','edit','update']]);
 Route::get('/buy', 'BuyController@index')->middleware('auth');
 Route::post('/buy', 'BuyController@store');
 Route::get('/about','AboutController@about');
+Route::post('/shipping','ShippingAjaxController@shipping');
 
 
 //管理側

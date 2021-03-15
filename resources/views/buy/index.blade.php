@@ -34,7 +34,7 @@
                                 <div class="form-group col-md-6">
                                     @if(Request::has('confirm'))
                                        <label for="address">住所</label>
-                                        <p class="form-control-static">{{ old('address') }}</p>
+                                        <p class="form-control-static old_address">{{ old('address') }}</p>
                                         <input id="address" type="hidden" name="address" value="{{ old('address') }}">
                                     @else
                                     <select name="address" id="address-radio">
@@ -61,7 +61,7 @@
                             <div class="form-row mb-1 sub-address">
                                 <div class="form-group col-md-6">
                                     @if(Request::has('confirm'))
-                                    <p class="form-control-static">{{ old('sub_address') }}</p>
+                                    <p class="form-control-static old_address">{{ old('sub_address') }}</p>
                                     <input id="sub_address" type="hidden" name="sub_address" value="{{ old('sub_address') }}">
                                     @else
                                     <div id="subAddress-radio" >
@@ -88,13 +88,15 @@
                                 </div>
                             </div>
 
+                            <input type="hidden" name="all_total" class="hidden_all_total">
+
                             <div class="form-row">
                                 <div class="col-md-6">
                                     @if(Request::has('confirm'))
                                         <button type="submit" class="btn" name="post">注文を確定する</button>
                                         <button type="submit" class="btn" name="back">修正する</button>
                                     @else
-                                        <button type="submit" class="btn" name="confirm">入力内容を確認する</button>
+                                        <button type="submit" class="btn" name="confirm" id="confirm">入力内容を確認する</button>
                                     @endif
                                 </div>
                             </div>
@@ -117,7 +119,11 @@
             </div>
             <hr>
             @endforeach
-            <div class="total">合計金額：{{$total}}円</div>
+            <div class="total">
+                <div id="total">商品合計：{{$total}}円</div>
+                <div>送料：<span id="shipping" style="margin-left: 2.8rem ;"></span></div>
+                <div>合計金額：<span id="all_total"></span></div>
+            </div>
         </div>
     </div>
 

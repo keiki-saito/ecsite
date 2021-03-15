@@ -18,6 +18,7 @@ mix.js([
     'resources/js/address-radio.js',
     'resources/js/category_search.js',
     'resources/js/jquery.autokana.js',
+    'resources/js/shipping.js',
 
   ],
      'public/js')
